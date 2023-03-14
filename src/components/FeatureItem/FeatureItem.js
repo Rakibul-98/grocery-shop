@@ -146,7 +146,7 @@ const FeatureItem = () => {
                             <div className='text-2xl group-hover:flex justify-center hidden -mt-12'>
                                 {
                                     cartIcon.map(ci=>
-                                    <span className='mx-2 p-3 bg-white rounded-full hover:bg-orange-400 hover:text-white'>{ci.icon}</span>)
+                                    <span className='mx-2 p-3 bg-white rounded-full hover:bg-orange-500 hover:text-white'>{ci.icon}</span>)
                                 }
                             </div>
                             <div className='text-center font-bold mt-2'>
