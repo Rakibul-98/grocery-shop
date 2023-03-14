@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <div>
             <NavBar/>
-            <div className='grid md:grid-cols-8 w-11/12 md:w-9/12 mx-auto mt-10 gap-10'>
+            <div className='grid md:grid-cols-8 w-11/12 md:w-9/12 mx-auto mt-5 gap-5'>
                 <div className='md:col-span-2'>
                     <Menu/>
                 </div>

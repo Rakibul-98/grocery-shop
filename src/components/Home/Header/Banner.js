@@ -5,7 +5,7 @@ import { BsTelephone } from "react-icons/bs";
 const Banner = () => {
     return (
         <div className=''>
-            <div className='grid md:grid-cols-4 gap-5 mb-5'>
+            <div className='grid md:grid-cols-4 gap-5 md:mb-5'>
                 <div className='md:col-span-3 flex h-14'>
                     <input className='w-full rounded-tl-xl rounded-bl-xl' type="text" name="search" placeholder='What do you want?' />
                     <button className='py-2 px-5 bg-emerald-500 text-white font-bold rounded-br-xl rounded-tr-xl hover:bg-emerald-300'>Search</button>
