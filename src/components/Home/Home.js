@@ -1,4 +1,5 @@
 import React from 'react';
+import FeatureItem from '../FeatureItem/FeatureItem';
 import FeatureCarousel from './FeatureCarousel/FeatureCarousel';
 import Header from './Header/Header';
 
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
             <Header/>
             <FeatureCarousel/>
+            <FeatureItem/>
         </div>
     );
 };
