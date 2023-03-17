@@ -62,9 +62,9 @@ const FeatureCarousel = () => {
             >
                 {
                     carouselData.map(cd=>
-                        <div className='relative'>
+                        <div className='relative group'>
                             <img className='lg:px-5 px-2' src={cd.img} alt="" />
-                            <button className='py-1 font-bold text-lg bg-white text-black w-8/12 absolute bottom-3 left-12 hidden xl:block'>{cd.type}</button>
+                            <button className='py-1 font-bold text-lg bg-white text-black w-8/12 absolute bottom-3 left-12 hidden xl:block group-hover:bg-slate-100 group-hover:text-emerald-500'>{cd.type}</button>
                         </div>
                         )
                 }

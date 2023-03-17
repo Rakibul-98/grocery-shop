@@ -34,9 +34,9 @@ const NavBar = () => {
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"> LOGO </span>
             </Navbar.Brand>
             <div className="flex md:order-2">
-                <div className='flex text-2xl'>
-                    <span><BsFillHeartFill/></span>
-                    <span className='mx-5'><BsBagDash/></span>
+                <div className='flex text-2xl '>
+                    <span className='hover:text-emerald-400'><BsFillHeartFill/></span>
+                    <span className='mx-5 hover:text-emerald-400'><BsBagDash/></span>
                 </div>
                 <p>Total: <span className='font-bold'>$150.00</span></p>
             </div>

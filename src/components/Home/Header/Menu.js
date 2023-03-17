@@ -40,11 +40,11 @@ const Menu = () => {
     ]
 
     return (
-        <div>
+        <div className='group'>
             <Accordion alwaysOpen={true}>
                 <Accordion.Panel>
                     <Accordion.Title className='bg-emerald-400 h-14'>
-                        <div className='flex items-center text-white hover:text-black'>
+                        <div className='flex items-center text-white group-hover:text-black'>
                             <span><FaBars/></span>
                             <p className='ml-5'>All Category</p>
                         </div>

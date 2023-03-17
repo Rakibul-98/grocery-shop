@@ -130,8 +130,11 @@ const FeatureItem = () => {
 
     return (
         <div className='my-20'>
-            <h1 className='text-center text-4xl font-semibold mb-5'>Feature Products</h1>
-            <nav className='text-center mb-10'>
+            <div className='group'>
+                <h1 className='text-center text-4xl font-semibold'>Feature Products</h1>
+                <hr className='w-1/12 mx-auto h-1 bg-emerald-500 group-hover:w-3/12 transition-width duration-500 ease-in-out mt-2'></hr>
+            </div>
+            <nav className='text-center my-10'>
                 {
                     navs.map(n=>
                         <a className='mx-5 font-semibold text-emerald-500 hover:text-black' key={n.id} href={n.link}>{n.name}</a>
@@ -141,15 +144,15 @@ const FeatureItem = () => {
             <div className='grid w-9/12 md:grid-cols-3 lg:grid-cols-4 gap-10 mx-auto'>
                 {
                     products.map(p=>
-                        <div className='relative group'>
-                            <img className='' src={p.img} alt={p.title} />
+                        <div className='relative group hover:shadow-xl rounded-lg'>
+                            <img className='rounded-t-lg' src={p.img} alt={p.title} />
                             <div className='text-2xl group-hover:flex justify-center hidden -mt-12'>
                                 {
                                     cartIcon.map(ci=>
                                     <span className='mx-2 p-3 bg-white rounded-full hover:bg-orange-500 hover:text-white'>{ci.icon}</span>)
                                 }
                             </div>
-                            <div className='text-center font-bold mt-2'>
+                            <div className='text-center font-bold mt-2 pb-3'>
                                 <p className='text-xl'>{p.title}</p>
                                 <p>${p.price}.00</p>
                             </div>
