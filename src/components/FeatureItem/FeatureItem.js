@@ -132,7 +132,7 @@ const FeatureItem = () => {
         <div className='my-20'>
             <div className='group'>
                 <h1 className='text-center text-4xl font-semibold'>Feature Products</h1>
-                <hr className='w-1/12 mx-auto h-1 bg-emerald-500 group-hover:w-3/12 transition-width duration-500 ease-in-out mt-2'></hr>
+                <hr className='w-2/12 md:w-1/12 mx-auto h-1 bg-emerald-500 md:group-hover:w-2/12 group-hover:w-8/12 transition-width duration-500 ease-in-out mt-2'></hr>
             </div>
             <nav className='text-center my-10'>
                 {

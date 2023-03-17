@@ -33,8 +33,8 @@ const Blog = () => {
     return (
         <div>
             <div className='group'>
-                <h1 className='text-5xl text-center font-semibold'>Health Tips</h1>
-                <hr className='w-1/12 mx-auto h-2 bg-emerald-500 mt-3 group-hover:w-2/12 transition-width duration-500 ease-in-out'></hr>
+                <h1 className='text-4xl text-center font-semibold'>Health Tips</h1>
+                <hr className='w-2/12 md:w-1/12 mx-auto h-2 bg-emerald-500 mt-3 md:group-hover:w-2/12 group-hover:w-5/12 transition-width duration-500 ease-in-out'></hr>
             </div>
             <div className='grid lg:grid-cols-3 gap-10 w-10/12 md:w-8/12 lg:w-10/12 mx-auto my-20'>
                 {
