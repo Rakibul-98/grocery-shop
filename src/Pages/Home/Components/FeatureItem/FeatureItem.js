@@ -152,19 +152,19 @@ const FeatureItem = () => {
             <nav className='text-center my-10'>
                 {
                     navs.map(n=>
-                        <a className='mx-5 font-semibold text-emerald-500 hover:text-black' key={n.id} href={n.link}>{n.name}</a>
+                        <a key={n.id} className='mx-5 font-semibold text-emerald-500 hover:text-black' href={n.link}>{n.name}</a>
                         )
                 }
             </nav>
             <div className='grid w-9/12 md:grid-cols-3 lg:grid-cols-4 gap-10 mx-auto'>
                 {
                     products.map(p=>
-                        <div className='relative group hover:shadow-xl rounded-lg'>
+                        <div key={p.id} className='relative group hover:shadow-xl rounded-lg'>
                             <img className='rounded-t-lg' src={p.img} alt={p.title} />
                             <div className='text-2xl group-hover:flex justify-center hidden -mt-12'>
                                 {
                                     cartIcon.map(ci=>
-                                    <span className='mx-2 p-3 bg-white rounded-full hover:bg-orange-500 hover:text-white'>{ci.icon}</span>)
+                                    <span key={ci.id} className='mx-2 p-3 bg-white rounded-full hover:bg-orange-500 hover:text-white'>{ci.icon}</span>)
                                 }
                             </div>
                             <div className='text-center font-bold mt-2 pb-3'>

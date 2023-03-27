@@ -22,7 +22,7 @@ const FeatureBlog = () => {
             comments:"18"
         },
         {
-            id:1,
+            id:3,
             img:"https://i.ibb.co/6Yrv7Ty/coriender.jpg",
             title:"Benefit of eating herbs",
             text:"Coriander, also known as cilantro or Chinese parsley, is an herb commonly used in cooking and traditional medicine.",
@@ -39,7 +39,7 @@ const FeatureBlog = () => {
             <div className='grid lg:grid-cols-3 gap-10 w-10/12 md:w-8/12 lg:w-10/12 mx-auto my-20'>
                 {
                     blogs.map(b=>
-                        <div className='hover:shadow-xl'>
+                        <div key={b.id} className='hover:shadow-xl'>
                             <img className='h-80 w-full' src={b.img} alt="" />
                             <div className='pb-5 px-2'>
                                 <div className='flex items-center my-2 text-gray-500'>

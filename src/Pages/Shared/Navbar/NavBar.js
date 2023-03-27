@@ -35,7 +35,7 @@ const NavBar = () => {
             </Navbar.Brand>
             <div className="flex md:order-2">
                 <div className='flex text-2xl '>
-                    <span className='hover:text-emerald-400'><BsFillHeartFill/></span>
+                    <label htmlFor="cart-modal" className='hover:text-emerald-400'><BsFillHeartFill/></label>
                     <span className='mx-5 hover:text-emerald-400'><BsBagDash/></span>
                 </div>
                 <p>Total: <span className='font-bold'>$150.00</span></p>
