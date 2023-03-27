@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsBagDash} from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
+import { FaRegArrowAltCircleUp } from "react-icons/fa";
 
 const FeatureItem = () => {
 
@@ -128,6 +129,20 @@ const FeatureItem = () => {
         }
     ]
 
+    const handleGoTop=()=>{
+        document.documentElement.scrollTop = 0;
+    }
+
+    window.onscroll = () => {scrollFunction()};
+    const scrollFunction=()=>{
+        if (document.documentElement.scrollTop > 20) {
+            document.getElementById("top-btn").style.display="block";
+        } 
+        else {
+            document.getElementById("top-btn").style.display="none";
+        }
+    }
+
     return (
         <div className='my-20'>
             <div className='group'>
@@ -159,6 +174,9 @@ const FeatureItem = () => {
                         </div>
                     )
                 }
+            </div>
+            <div id='top-btn' className='animate-bounce hover:animate-none fixed bottom-5 right-5'>
+                <span className='text-4xl text-black hover:text-orange-500 hover:cursor-pointer' onClick={handleGoTop}><FaRegArrowAltCircleUp/></span>
             </div>
         </div>
     );

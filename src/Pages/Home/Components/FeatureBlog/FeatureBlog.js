@@ -2,7 +2,7 @@ import React from 'react';
 import { FaRegComment } from "react-icons/fa";
 import { BsCalendarDay } from "react-icons/bs";
 
-const Blog = () => {
+const FeatureBlog = () => {
 
     const blogs = [
         {
@@ -59,4 +59,4 @@ const Blog = () => {
     );
 };
 
-export default Blog;
+export default FeatureBlog;

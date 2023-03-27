@@ -6,24 +6,24 @@ const NavBar = () => {
 
     const nav =[
         {
-            id:1,
-            name:"About",
-            link:"#about",
-        },
-        {
             id:2,
             name:"Shop",
-            link:"#shop",
+            link:"/shop",
         },
         {
             id:3,
             name:"Blog",
-            link:"#blog",
+            link:"/blog",
+        },
+        {
+            id:1,
+            name:"About",
+            link:"/about",
         },
         {
             id:4,
-            name:"Contact",
-            link:"#contact",
+            name:"Login",
+            link:"/login",
         }
     ]
 

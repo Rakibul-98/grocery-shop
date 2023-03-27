@@ -44,7 +44,7 @@ const Menu = () => {
             <Accordion alwaysOpen={true}>
                 <Accordion.Panel>
                     <Accordion.Title className='bg-emerald-400 h-14'>
-                        <div className='flex items-center text-white group-hover:text-black'>
+                        <div className='flex items-center'>
                             <span><FaBars/></span>
                             <p className='ml-5'>All Category</p>
                         </div>

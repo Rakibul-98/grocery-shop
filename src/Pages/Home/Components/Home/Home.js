@@ -1,10 +1,10 @@
 import React from 'react';
-import Blog from '../Blog/Blog';
+import Header from '../Header/Header/Header';
+import FeatureCarousel from '../FeatureCarousel/FeatureCarousel';
 import FeatureItem from '../FeatureItem/FeatureItem';
+import FeatureBlog from '../FeatureBlog/FeatureBlog';
 import Offer from '../Offer/Offer';
-import FeatureCarousel from './FeatureCarousel/FeatureCarousel';
-import Foot from './Footer/Foot';
-import Header from './Header/Header';
+
 
 const Home = () => {
     return (
@@ -13,8 +13,7 @@ const Home = () => {
             <FeatureCarousel/>
             <FeatureItem/>
             <Offer/>
-            <Blog/>
-            <Foot/>
+            <FeatureBlog/>
         </div>
     );
 };
