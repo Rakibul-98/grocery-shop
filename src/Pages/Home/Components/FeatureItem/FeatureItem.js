@@ -54,68 +54,6 @@ const FeatureItem = () => {
             title:"Onion",
             price:"13",
         },
-        {
-            id:9,
-            img:"https://i.ibb.co/2q0DrNp/strawberry.jpg",
-            title:"Strawberry",
-            price:"30",
-        },
-        {
-            id:10,
-            img:"https://i.ibb.co/VLhBggy/apple.jpg",
-            title:"Apple",
-            price:"20",
-        },
-        {
-            id:11,
-            img:"https://i.ibb.co/Y3gc5R9/grape.jpg",
-            title:"Grape",
-            price:"30",
-        },
-        {
-            id:12,
-            img:"https://i.ibb.co/KhSbcwc/cabbage.jpg",
-            title:"Cabbage",
-            price:"15",
-        }
-    ]
-
-    const navs =[
-        {
-            id:1,
-            name:"All",
-            link:"#",
-        },
-        {
-            id:2,
-            name:"Meat",
-            link:"#",
-        },
-        {
-            id:3,
-            name:"Vegetable",
-            link:"#",
-        },
-        {
-            id:4,
-            name:"Fruits",
-            link:"#",
-        },
-        {
-            id:5,
-            name:"Sea Food",
-            link:"#",
-        },
-        {
-            id:6,
-            name:"Herbs",
-            link:"#",
-        },
-        {
-            id:7,
-            name:"Ice-cream",
-            link:"#",
-        }
     ]
 
     const cartIcon =[
@@ -149,14 +87,7 @@ const FeatureItem = () => {
                 <h1 className='text-center text-4xl font-semibold'>Feature Products</h1>
                 <hr className='w-2/12 md:w-1/12 mx-auto h-1 bg-emerald-500 md:group-hover:w-2/12 group-hover:w-8/12 transition-width duration-500 ease-in-out mt-2'></hr>
             </div>
-            <nav className='text-center my-10'>
-                {
-                    navs.map(n=>
-                        <a key={n.id} className='mx-5 font-semibold text-emerald-500 hover:text-black' href={n.link}>{n.name}</a>
-                        )
-                }
-            </nav>
-            <div className='grid w-9/12 md:grid-cols-3 lg:grid-cols-4 gap-10 mx-auto'>
+            <div className='grid w-9/12 md:grid-cols-3 lg:grid-cols-4 gap-10 mx-auto mt-10'>
                 {
                     products.map(p=>
                         <div key={p.id} className='relative group hover:shadow-xl rounded-lg'>

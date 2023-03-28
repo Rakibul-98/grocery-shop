@@ -5,6 +5,7 @@ import FeatureItem from '../FeatureItem/FeatureItem';
 import FeatureBlog from '../FeatureBlog/FeatureBlog';
 import Offer from '../Offer/Offer';
 import Cart from '../../../Cart/Cart';
+import Favorites from '../../../Favorites/Favorites';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
         <div>
             <Header/>
             <Cart/>
+            <Favorites/>
             <FeatureCarousel/>
             <FeatureItem/>
             <Offer/>

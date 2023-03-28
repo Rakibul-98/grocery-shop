@@ -1,8 +1,6 @@
 import React from 'react';
-import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
-import { Link } from 'react-router-dom';
 
-const Cart = () => {
+const Favorites = () => {
 
     const heading = [
         {
@@ -12,12 +10,12 @@ const Cart = () => {
         },
         {
             id: 2,
-            title: "Quantity",
+            title: "Price",
             span: 2,
         },
     ]
 
-    const cartProducts = [
+    const favoriteProducts = [
         {
             id: 1,
             name: "Apple",
@@ -44,14 +42,15 @@ const Cart = () => {
             quantity: 12,
         },
     ]
+
     return (
         <div className='relative'>
-            <input type="checkbox" id="cart-modal" className="modal-toggle" />
+            <input type="checkbox" id="favorites-modal" className="modal-toggle" />
             <div className="modal justify-end">
                 <div className="modal-box h-screen w-96 mr-5">
                     <div>
-                        <label htmlFor="cart-modal" className="btn btn-sm btn-error text-white btn-circle absolute right-2 top-2">✕</label>
-                        <h1 className='font-semibold text-3xl text-center'>Shopping Cart</h1>
+                        <label htmlFor="favorites-modal" className="btn btn-sm btn-error text-white btn-circle absolute right-2 top-2">✕</label>
+                        <h1 className='font-semibold text-3xl text-center'>Favorite Items</h1>
                         <hr className='mt-2 h-1 bg-emerald-400'></hr>
                     </div>
                     <div className="mt-3 grid grid-cols-5 text-center">
@@ -61,28 +60,22 @@ const Cart = () => {
                             )
                         }
                         {
-                            cartProducts.map(cp =>
+                            favoriteProducts.map(fp =>
                                 <>
-                                    <div key={cp.id} className='col-span-3 my-2'>
-                                        <p className='text-left'>{cp.name}</p>
+                                    <div key={fp.id} className='col-span-3 my-2'>
+                                        <p className='text-left'>{fp.name}</p>
                                     </div>
-                                    <div className='col-span-2 flex items-center justify-evenly'>
-                                        <span className='text-xl text-red-300 hover:text-red-600 hover:cursor-pointer'><AiOutlineMinusCircle /></span>
-                                        <p>600</p>
-                                        <span className='text-xl
-                                        text-emerald-300  hover:text-emerald-500 hover:cursor-pointer'><AiOutlinePlusCircle /></span>
+                                    <div className='col-span-2'>
+                                        <p>$ 600</p>
                                     </div>
                                 </>
                             )
                         }
                     </div>
-                        <div className="absolute bottom-2 w-11/12 left-0 right-0 mx-auto">
-                            <Link to='/checkout'><label htmlFor="cart-modal" className="btn w-full hover:bg-success">Checkout</label></Link>
-                        </div>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Cart;
+export default Favorites;
