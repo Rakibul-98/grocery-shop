@@ -148,5 +148,65 @@
         "img": "https://i.ibb.co/D4Fb8kh/pexels-mali-maeder-102104.jpg",
         "title": "Apple",
         "price": "15"
+    },
+    {
+        "id": 26,
+        "img": "https://i.ibb.co/N2LT5H6/duck.jpg",
+        "title": "Duck",
+        "price": "15"
+    },
+    {
+        "id": 27,
+        "img": "https://i.ibb.co/qMVfkpB/chicken.jpg",
+        "title": "Chicken",
+        "price": "10"
+    },
+    {
+        "id": 28,
+        "img": "https://i.ibb.co/y60hS1d/lamb.jpg",
+        "title": "Lamb",
+        "price": "13"
+    },
+    {
+        "id": 29,
+        "img": "https://i.ibb.co/9g7LG3z/beef.jpg",
+        "title": "Beef",
+        "price": "10"
+    },
+    {
+        "id": 30,
+        "img": "https://i.ibb.co/5kWqm13/mutton.jpg",
+        "title": "Mutton",
+        "price": "20"
+    },
+    {
+        "id": 31,
+        "img": "https://i.ibb.co/B2YbN8P/crab.jpg",
+        "title": "Crab",
+        "price": "13"
+    },
+    {
+        "id": 32,
+        "img": "https://i.ibb.co/SPPTfjS/shrimp.jpg",
+        "title": "Shrimp",
+        "price": "30"
+    },
+    {
+        "id": 33,
+        "img": "https://i.ibb.co/bFvGDgs/clams.jpg",
+        "title": "Clams",
+        "price": "20"
+    },
+    {
+        "id": 34,
+        "img": "https://i.ibb.co/3N3zvvJ/squid.jpg",
+        "title": "Squid",
+        "price": "30"
+    },
+    {
+        "id": 35,
+        "img": "https://i.ibb.co/B6CZstD/prawn.jpg",
+        "title": "Prawn",
+        "price": "15"
     }
 ]
