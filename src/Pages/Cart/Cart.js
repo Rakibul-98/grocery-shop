@@ -54,7 +54,7 @@ const Cart = () => {
                         }
                     </div>
                         <div className="absolute bottom-2 w-11/12 left-0 right-0 mx-auto">
-                            <Link to='/checkout'><label htmlFor="cart-modal" className="btn w-full hover:bg-success">Checkout</label></Link>
+                            <Link to='/checkout'><label htmlFor="cart-modal" className="btn w-full hover:bg-success">Review Cart</label></Link>
                         </div>
                 </div>
             </div>

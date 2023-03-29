@@ -1,18 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { BsBagDash } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import Cart from '../../Pages/Cart/Cart';
 import { ProductContext } from '../../contexts/ProductsProvider';
 
 const Shop = () => {
-    const [products, setProducts] = useState([]);
-    const {savedProducts, setSavedProducts, cartProducts, setCartProducts} = useContext(ProductContext)
-
-    useEffect(() => {
-        fetch("products.json")
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
+    
+    const { products, handleAdd } = useContext(ProductContext);
 
     const nav = [
         {
@@ -52,24 +46,6 @@ const Shop = () => {
         }
     ]
 
-    const handleAddToSave = (p_id) => {
-        products.forEach(product => {
-            if (product.id === p_id) {
-                const newProducts = [...savedProducts, product];
-                setSavedProducts(newProducts);
-            }
-        });
-    }
-
-    const handleAddToCart = (p_id) => {
-        products.forEach(product => {
-            if (product.id === p_id) {
-                const newProducts = [...cartProducts, product];
-                setCartProducts(newProducts);
-            }
-        });
-    }
-
     const iconStyle = "mx-2 p-3 bg-white rounded-full hover:bg-orange-500 hover:text-white";
 
     return (
@@ -92,8 +68,8 @@ const Shop = () => {
                         <div key={p.id} className='relative group hover:shadow-xl rounded-lg'>
                             <img className='rounded-t-lg' src={p.img} alt={p.title} />
                             <div className='text-2xl group-hover:flex justify-center hidden -mt-12'>
-                                <span onClick={() => handleAddToSave(p.id)} className={iconStyle}><AiOutlineHeart /></span>
-                                <span onClick={()=>handleAddToCart(p.id)} className={iconStyle}><BsBagDash /></span>
+                                <span onClick={() => handleAdd(p.id, "fav")} className={iconStyle}><AiOutlineHeart /></span>
+                                <span onClick={() => handleAdd(p.id, "cart")} className={iconStyle}><BsBagDash /></span>
                             </div>
                             <div className='text-center font-bold mt-2 pb-3'>
                                 <p className='text-xl'>{p.title}</p>
