@@ -1,60 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsBagDash} from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
 
 const FeatureItem = () => {
 
-    const products =[
-        {
-            id:1,
-            img:"https://i.ibb.co/2ysgLsT/mango-2.jpg",
-            title:"Mango",
-            price:"20",
-        },
-        {
-            id:2,
-            img:"https://i.ibb.co/P5fvrHb/basil.jpg",
-            title:"Basil",
-            price:"10",
-        },
-        {
-            id:3,
-            img:"https://i.ibb.co/JsHr4FN/capcicum.jpg",
-            title:"Bell Paper",
-            price:"15",
-        },
-        {
-            id:4,
-            img:"https://i.ibb.co/wKqBCzQ/tomato.jpg",
-            title:"Tomato",
-            price:"10",
-        },
-        {
-            id:5,
-            img:"https://i.ibb.co/s6gm8Q3/ginger.jpg",
-            title:"Ginger",
-            price:"13",
-        },
-        {
-            id:6,
-            img:"https://i.ibb.co/jH2hrN3/corn.jpg",
-            title:"Corn",
-            price:"10",
-        },
-        {
-            id:7,
-            img:"https://i.ibb.co/Nn5JtKL/papaya.jpg",
-            title:"Papaya",
-            price:"20",
-        },
-        {
-            id:8,
-            img:"https://i.ibb.co/S5kvBbX/onion.jpg",
-            title:"Onion",
-            price:"13",
-        },
-    ]
+    const [featureProducts, setFeatureProducts] = useState([]);
+
+    useEffect(()=>{
+        fetch("products.json")
+        .then(res=>res.json())
+        .then(data=>setFeatureProducts(data))
+    },[])
 
     const cartIcon =[
         {
@@ -89,7 +46,7 @@ const FeatureItem = () => {
             </div>
             <div className='grid w-9/12 md:grid-cols-3 lg:grid-cols-4 gap-10 mx-auto mt-10'>
                 {
-                    products.map(p=>
+                    featureProducts.slice(0,8).map(p=>
                         <div key={p.id} className='relative group hover:shadow-xl rounded-lg'>
                             <img className='rounded-t-lg' src={p.img} alt={p.title} />
                             <div className='text-2xl group-hover:flex justify-center hidden -mt-12'>
@@ -106,7 +63,7 @@ const FeatureItem = () => {
                     )
                 }
             </div>
-            <div id='top-btn' className='animate-bounce hover:animate-none fixed bottom-5 right-5'>
+            <div id='top-btn' className='animate-bounce hover:animate-none fixed bottom-5 right-5 shadow-lg rounded-full shadow-black'>
                 <span className='text-4xl text-black hover:text-orange-500 hover:cursor-pointer' onClick={handleGoTop}><FaRegArrowAltCircleUp/></span>
             </div>
         </div>

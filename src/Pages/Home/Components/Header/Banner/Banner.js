@@ -23,7 +23,7 @@ const Banner = () => {
                     <p className='font-semibold text-emerald-500'>FRESH</p>
                     <h1 className='text-5xl font-bold'>100% <br /> Organic</h1>
                     <p className='my-1'>Free Pickup and Delivery Available</p>
-                    <Button className='rounded-none px-5' color="success">Success</Button>
+                    <Button className='rounded-none px-5 uppercase' color="success">Start shopping</Button>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { Navbar } from 'flowbite-react';
 import React from 'react';
 import { BsBagDash, BsFillHeartFill} from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 
@@ -42,9 +43,9 @@ const NavBar = () => {
             </div>
             <Navbar.Toggle />
             <Navbar.Collapse>
-                <Navbar.Link className='text-lg' href="/">Home</Navbar.Link>
+                <Link className='text-lg' to="/">Home</Link>
                 {
-                    nav.map(n=><Navbar.Link className='text-lg' key={n.id} href={n.link}>{n.name}</Navbar.Link>)
+                    nav.map(n=><Link className='text-lg' key={n.id} to={n.link}>{n.name}</Link>)
                 }
             </Navbar.Collapse>
         </Navbar>

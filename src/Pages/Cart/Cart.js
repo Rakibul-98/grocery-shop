@@ -1,6 +1,8 @@
 import React from 'react';
+import { useContext } from 'react';
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 import { Link } from 'react-router-dom';
+import { ProductContext } from '../../contexts/ProductsProvider';
 
 const Cart = () => {
 
@@ -17,33 +19,8 @@ const Cart = () => {
         },
     ]
 
-    const cartProducts = [
-        {
-            id: 1,
-            name: "Apple",
-            quantity: 12,
-        },
-        {
-            id: 2,
-            name: "Spinach",
-            quantity: 12,
-        },
-        {
-            id: 3,
-            name: "Jack Fruit",
-            quantity: 12,
-        },
-        {
-            id: 4,
-            name: "Capcicum",
-            quantity: 12,
-        },
-        {
-            id: 5,
-            name: "Cauliflower",
-            quantity: 12,
-        },
-    ]
+    const {cartProducts} = useContext(ProductContext);
+
     return (
         <div className='relative'>
             <input type="checkbox" id="cart-modal" className="modal-toggle" />
@@ -63,12 +40,12 @@ const Cart = () => {
                         {
                             cartProducts.map(cp =>
                                 <>
-                                    <div key={cp.id} className='col-span-3 my-2'>
-                                        <p className='text-left'>{cp.name}</p>
+                                    <div className='col-span-3 my-2'>
+                                        <p className='text-left'>{cp.title}</p>
                                     </div>
                                     <div className='col-span-2 flex items-center justify-evenly'>
                                         <span className='text-xl text-red-300 hover:text-red-600 hover:cursor-pointer'><AiOutlineMinusCircle /></span>
-                                        <p>600</p>
+                                        <p>{cp.price}</p>
                                         <span className='text-xl
                                         text-emerald-300  hover:text-emerald-500 hover:cursor-pointer'><AiOutlinePlusCircle /></span>
                                     </div>

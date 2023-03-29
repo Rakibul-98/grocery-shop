@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ProductContext } from '../../contexts/ProductsProvider';
 
 const Favorites = () => {
+
+    const {savedProducts} = useContext(ProductContext);
 
     const heading = [
         {
@@ -12,34 +15,6 @@ const Favorites = () => {
             id: 2,
             title: "Price",
             span: 2,
-        },
-    ]
-
-    const favoriteProducts = [
-        {
-            id: 1,
-            name: "Apple",
-            quantity: 12,
-        },
-        {
-            id: 2,
-            name: "Spinach",
-            quantity: 12,
-        },
-        {
-            id: 3,
-            name: "Jack Fruit",
-            quantity: 12,
-        },
-        {
-            id: 4,
-            name: "Capcicum",
-            quantity: 12,
-        },
-        {
-            id: 5,
-            name: "Cauliflower",
-            quantity: 12,
         },
     ]
 
@@ -60,18 +35,21 @@ const Favorites = () => {
                             )
                         }
                         {
-                            favoriteProducts.map(fp =>
+                            savedProducts.map(fp =>
                                 <>
-                                    <div key={fp.id} className='col-span-3 my-2'>
-                                        <p className='text-left'>{fp.name}</p>
+                                    <div className='col-span-3 my-2'>
+                                        <p className='text-left'>{fp.title}</p>
                                     </div>
                                     <div className='col-span-2'>
-                                        <p>$ 600</p>
+                                        <p>${fp.price}</p>
                                     </div>
                                 </>
                             )
                         }
                     </div>
+                </div>
+                <div>
+
                 </div>
             </div>
         </div>
