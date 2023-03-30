@@ -66,13 +66,13 @@ const Shop = () => {
                 {
                     products.map(p =>
                         <div key={p.id} className='relative group hover:shadow-xl rounded-lg'>
-                            <img className='rounded-t-lg' src={p.img} alt={p.title} />
+                            <img className='rounded-t-lg' src={p.img} alt={p.name} />
                             <div className='text-2xl group-hover:flex justify-center hidden -mt-12'>
                                 <span onClick={() => handleAdd(p.id, "fav")} className={iconStyle}><AiOutlineHeart /></span>
                                 <span onClick={() => handleAdd(p.id, "cart")} className={iconStyle}><BsBagDash /></span>
                             </div>
                             <div className='text-center font-bold mt-2 pb-3'>
-                                <p className='text-xl'>{p.title}</p>
+                                <p className='text-xl'>{p.name}</p>
                                 <p>${p.price}.00</p>
                             </div>
                         </div>

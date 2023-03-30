@@ -3,9 +3,12 @@ import React, { createContext, useEffect, useState } from 'react';
 export const ProductContext = createContext([]);
 
 const ProductsProvider = ({children}) => {
+
     const [products, setProducts] = useState([]);
     const [savedProducts, setSavedProducts] = useState([]);
     const [cartProducts, setCartProducts] = useState([]);
+    const [featureProducts, setFeatureProducts] = useState([]);
+    
 
     useEffect(() => {
         fetch("products.json")
@@ -26,13 +29,20 @@ const ProductsProvider = ({children}) => {
         });
     }
 
+    const handleMenuProduct = (category) => {
+        setFeatureProducts(products.filter(p=>p.category===category));
+    }
+
     const value ={
         products,
         savedProducts, 
         setSavedProducts,
         cartProducts, 
         setCartProducts,
-        handleAdd
+        handleAdd,
+        featureProducts, 
+        setFeatureProducts,
+        handleMenuProduct
     }
     return (
         <ProductContext.Provider value={value}>

@@ -1,6 +1,7 @@
 import { Button } from 'flowbite-react';
 import React from 'react';
 import { BsTelephone } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -23,7 +24,7 @@ const Banner = () => {
                     <p className='font-semibold text-emerald-500'>FRESH</p>
                     <h1 className='text-5xl font-bold'>100% <br /> Organic</h1>
                     <p className='my-1'>Free Pickup and Delivery Available</p>
-                    <Button className='rounded-none px-5 uppercase' color="success">Start shopping</Button>
+                    <Link to="/shop"><Button className='rounded-none px-5 uppercase' color="success">Start shopping</Button></Link>
                 </div>
             </div>
         </div>

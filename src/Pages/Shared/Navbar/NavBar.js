@@ -7,6 +7,11 @@ const NavBar = () => {
 
     const nav =[
         {
+            id:5,
+            name:"Home",
+            link:"/",
+        },
+        {
             id:2,
             name:"Shop",
             link:"/shop",
@@ -31,7 +36,7 @@ const NavBar = () => {
     return (
         <Navbar className='bg-opacity-0 pt-5' fluid={true} rounded={true}>
             <Navbar.Brand href="/">
-                <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
+                <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="FlowBite Logo" />
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"> LOGO </span>
             </Navbar.Brand>
             <div className="flex md:order-2">
@@ -43,9 +48,8 @@ const NavBar = () => {
             </div>
             <Navbar.Toggle />
             <Navbar.Collapse>
-                <Link className='text-lg' to="/">Home</Link>
                 {
-                    nav.map(n=><Link className='text-lg' key={n.id} to={n.link}>{n.name}</Link>)
+                    nav.map(n=><Link className='text-lg hover:text-emerald-500 font-semibold border-gray-100 hover:bg-gray-100 border-b md:border-b-0 p-2 md:p-0 md:hover:bg-transparent' key={n.id} to={n.link}>{n.name}</Link>)
                 }
             </Navbar.Collapse>
         </Navbar>

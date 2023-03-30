@@ -1,41 +1,52 @@
 import { Accordion } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaBars } from "react-icons/fa";
+import { ProductContext } from '../../../../../contexts/ProductsProvider';
 
 const Menu = () => {
 
-    const category =[
+    const { handleMenuProduct } = useContext(ProductContext);
+
+    const category = [
         {
-            id:1,
-            name:"Fresh Meat"
+            id: 1,
+            type: "meat",
+            name: "Fresh Meat"
         },
         {
-            id:2,
-            name:"Vegetables"
+            id: 2,
+            type: "vegetables",
+            name: "Vegetables"
         },
         {
-            id:3,
-            name:"Fruits"
+            id: 3,
+            type: "fruits",
+            name: "Fruits"
         },
         {
-            id:4,
-            name:"Sea Food"
+            id: 4,
+            type: "sea",
+            name: "Sea Food"
         },
         {
-            id:5,
-            name:"Protein"
+            id: 5,
+            type: "fish",
+            name: "Fish"
         },
         {
-            id:6,
-            name:"Herbs and spices"
+            id: 6,
+            type: "herb",
+            name: "Herbs and spices"
         },
         {
-            id:7,
-            name:"Juice"
+            id: 7,
+            type: "oil",
+            name: "Cooking Oil"
         },
         {
-            id:8,
-            name:"Ice cream"
+            id: 8,
+            type: "ice-cream",
+            name: "Ice cream"
         }
     ]
 
@@ -45,15 +56,17 @@ const Menu = () => {
                 <Accordion.Panel>
                     <Accordion.Title className='bg-emerald-400 h-14'>
                         <div className='flex items-center'>
-                            <span><FaBars/></span>
+                            <span><FaBars /></span>
                             <p className='ml-5'>All Category</p>
                         </div>
                     </Accordion.Title>
                     <Accordion.Content>
                         <ul>
                             {
-                                category.map(c=>
-                                    <li className='pt-5 font-semibold hover:text-emerald-500 hover:cursor-pointer' key={c.id}>{c.name}</li>
+                                category.map(c =>
+                                    <li onClick={() => handleMenuProduct(c.type)}  key={c.id} className='pt-5 font-semibold hover:text-emerald-500 hover:cursor-pointer'>
+                                        <a href='#feature-items' >{c.name}</a>
+                                    </li>
                                 )
                             }
                         </ul>

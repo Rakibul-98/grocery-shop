@@ -38,7 +38,7 @@ const Favorites = () => {
                             savedProducts.map(fp =>
                                 <>
                                     <div className='col-span-3 my-2'>
-                                        <p className='text-left'>{fp.title}</p>
+                                        <p className='text-left'>{fp.name}</p>
                                     </div>
                                     <div className='col-span-2'>
                                         <p>${fp.price}</p>
