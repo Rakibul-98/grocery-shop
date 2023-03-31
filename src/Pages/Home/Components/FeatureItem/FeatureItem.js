@@ -5,7 +5,7 @@ import ProductCard from '../../../Shop/ProductCard';
 
 const FeatureItem = () => {
 
-    const { products, searchedProducts } = useContext(ProductContext);
+    const { products, categoryProducts } = useContext(ProductContext);
 
     const handleGoTop = () => {
         document.documentElement.scrollTop = 0;
@@ -13,7 +13,7 @@ const FeatureItem = () => {
 
     window.onscroll = () => { scrollFunction() };
     const scrollFunction = () => {
-        if (document.documentElement.scrollTop > 20) {
+        if (document.documentElement.scrollTop > 50) {
             document.getElementById("top-btn").style.display = "block";
         }
         else {
@@ -22,8 +22,8 @@ const FeatureItem = () => {
     }
 
     let items = products.slice(30, 38);
-    if (searchedProducts.length) {
-        items = searchedProducts;
+    if (categoryProducts.length) {
+        items = categoryProducts;
     }
 
     return (

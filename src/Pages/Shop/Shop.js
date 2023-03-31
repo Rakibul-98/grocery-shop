@@ -6,11 +6,11 @@ import ShopMenu from './ShopMenu/ShopMenu';
 
 const Shop = () => {
     
-    const {products, searchedProducts} = useContext(ProductContext);
+    const {products, categoryProducts} = useContext(ProductContext);
 
     let items = products;
-    if (searchedProducts.length) {
-        items = searchedProducts;
+    if (categoryProducts.length) {
+        items = categoryProducts;
     }
 
     return (

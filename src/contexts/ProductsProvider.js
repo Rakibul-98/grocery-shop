@@ -7,7 +7,8 @@ const ProductsProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [savedProducts, setSavedProducts] = useState([]);
     const [cartProducts, setCartProducts] = useState([]);
-    const [searchedProducts, setSearchedProducts] = useState([]);
+    const [categoryProducts, setCategoryProducts] = useState([]);
+    // const [searchedProducts, setSearchedProducts] = useState([]);
     const [searchedItem, setSearchedItem] = useState([]);
 
 
@@ -31,7 +32,7 @@ const ProductsProvider = ({ children }) => {
     }
 
     const handleMenuProduct = (category) => {
-        setSearchedProducts(products.filter(p => p.category === category));
+        setCategoryProducts(products.filter(p => p.category === category));
     }
 
     const handleSearchProduct = () => {
@@ -63,16 +64,13 @@ const ProductsProvider = ({ children }) => {
 
     const value = {
         products,
-        savedProducts,
-        setSavedProducts,
         cartProducts,
-        setCartProducts,
-        handleAdd,
-        searchedProducts,
-        setSearchedProducts,
+        savedProducts,
         handleMenuProduct,
+        categoryProducts,
         handleSearchProduct,
-        searchedItem
+        searchedItem,
+        handleAdd
     }
     return (
         <ProductContext.Provider value={value}>
