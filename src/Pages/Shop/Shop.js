@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-import { BsBagDash } from "react-icons/bs";
-import { AiOutlineHeart } from "react-icons/ai";
 import Cart from '../../Pages/Cart/Cart';
 import { ProductContext } from '../../contexts/ProductsProvider';
+import ProductCard from './ProductCard';
 
 const Shop = () => {
     
-    const { products, handleAdd } = useContext(ProductContext);
+    const { products} = useContext(ProductContext);
 
     const nav = [
         {
@@ -46,7 +45,6 @@ const Shop = () => {
         }
     ]
 
-    const iconStyle = "mx-2 p-3 bg-white rounded-full hover:bg-orange-500 hover:text-white";
 
     return (
         <div className='my-10'>
@@ -64,18 +62,7 @@ const Shop = () => {
             </nav>
             <div className='grid w-11/12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 mx-auto'>
                 {
-                    products.map(p =>
-                        <div key={p.id} className='relative group hover:shadow-xl rounded-lg'>
-                            <img className='rounded-t-lg' src={p.img} alt={p.name} />
-                            <div className='text-2xl group-hover:flex justify-center hidden -mt-12'>
-                                <span onClick={() => handleAdd(p.id, "fav")} className={iconStyle}><AiOutlineHeart /></span>
-                                <span onClick={() => handleAdd(p.id, "cart")} className={iconStyle}><BsBagDash /></span>
-                            </div>
-                            <div className='text-center font-bold mt-2 pb-3'>
-                                <p className='text-xl'>{p.name}</p>
-                                <p>${p.price}.00</p>
-                            </div>
-                        </div>
+                    products.map(product => <ProductCard key={product.id} product={product}></ProductCard>
                     )
                 }
             </div>
