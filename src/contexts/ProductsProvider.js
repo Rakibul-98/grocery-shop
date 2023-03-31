@@ -7,7 +7,7 @@ const ProductsProvider = ({children}) => {
     const [products, setProducts] = useState([]);
     const [savedProducts, setSavedProducts] = useState([]);
     const [cartProducts, setCartProducts] = useState([]);
-    const [featureProducts, setFeatureProducts] = useState([]);
+    const [searchedProducts, setSearchedProducts] = useState([]);
     
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const ProductsProvider = ({children}) => {
     }
 
     const handleMenuProduct = (category) => {
-        setFeatureProducts(products.filter(p=>p.category===category));
+        setSearchedProducts(products.filter(p=>p.category === category));
     }
 
     const value ={
@@ -40,8 +40,8 @@ const ProductsProvider = ({children}) => {
         cartProducts, 
         setCartProducts,
         handleAdd,
-        featureProducts, 
-        setFeatureProducts,
+        searchedProducts, 
+        setSearchedProducts,
         handleMenuProduct
     }
     return (

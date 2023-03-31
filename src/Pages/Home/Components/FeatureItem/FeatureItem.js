@@ -5,7 +5,7 @@ import ProductCard from '../../../Shop/ProductCard';
 
 const FeatureItem = () => {
 
-    const { products, featureProducts } = useContext(ProductContext);
+    const { products, searchedProducts } = useContext(ProductContext);
 
     const handleGoTop = () => {
         document.documentElement.scrollTop = 0;
@@ -22,8 +22,8 @@ const FeatureItem = () => {
     }
 
     let items = products.slice(30, 38);
-    if (featureProducts.length) {
-        items = featureProducts;
+    if (searchedProducts.length) {
+        items = searchedProducts;
     }
 
     return (
