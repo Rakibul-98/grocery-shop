@@ -2,13 +2,14 @@ import React, { createContext, useEffect, useState } from 'react';
 
 export const ProductContext = createContext([]);
 
-const ProductsProvider = ({children}) => {
+const ProductsProvider = ({ children }) => {
 
     const [products, setProducts] = useState([]);
     const [savedProducts, setSavedProducts] = useState([]);
     const [cartProducts, setCartProducts] = useState([]);
     const [searchedProducts, setSearchedProducts] = useState([]);
-    
+    const [searchedItem, setSearchedItem] = useState([]);
+
 
     useEffect(() => {
         fetch("products.json")
@@ -30,19 +31,48 @@ const ProductsProvider = ({children}) => {
     }
 
     const handleMenuProduct = (category) => {
-        setSearchedProducts(products.filter(p=>p.category === category));
+        setSearchedProducts(products.filter(p => p.category === category));
     }
 
-    const value ={
+    const handleSearchProduct = () => {
+        const searchBox = document.getElementById("searchBox");
+
+        const searchCardStyle = document.getElementById("search-item-card").style;
+
+        const searchAlert = document.getElementById("search-bar-alert");
+
+        const newItem = (products.find(p => p.name.toLowerCase().match(searchBox.value.toLowerCase())));
+
+        if (searchBox.value && newItem) {
+            searchAlert.style.display = "none";
+            setSearchedItem(newItem);
+            searchCardStyle.display = "block";
+        }
+        else {
+            searchAlert.style.display="block";
+            if (searchBox.value === "") {
+                searchAlert.innerHTML=`<p>Warning: Search box can not be empty !!!</p>`;
+            }
+            else {
+                searchAlert.innerHTML=`<p>Item not found !!!<br/>Please try another item.</p>`;
+            }
+            searchCardStyle.display = "none";
+        }
+        searchBox.value = '';
+    }
+
+    const value = {
         products,
-        savedProducts, 
+        savedProducts,
         setSavedProducts,
-        cartProducts, 
+        cartProducts,
         setCartProducts,
         handleAdd,
-        searchedProducts, 
+        searchedProducts,
         setSearchedProducts,
-        handleMenuProduct
+        handleMenuProduct,
+        handleSearchProduct,
+        searchedItem
     }
     return (
         <ProductContext.Provider value={value}>
