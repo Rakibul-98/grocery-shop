@@ -8,7 +8,6 @@ const ProductsProvider = ({ children }) => {
     const [savedProducts, setSavedProducts] = useState([]);
     const [cartProducts, setCartProducts] = useState([]);
     const [categoryProducts, setCategoryProducts] = useState([]);
-    // const [searchedProducts, setSearchedProducts] = useState([]);
     const [searchedItem, setSearchedItem] = useState([]);
 
 
@@ -22,7 +21,13 @@ const ProductsProvider = ({ children }) => {
         products.forEach(product => {
             if (product.id === p_id && type === "fav") {
                 const newProducts = [...savedProducts, product];
-                setSavedProducts(newProducts);
+                if(savedProducts.some(p=>p.id === p_id)){
+                    alert("Items already added in favorites.");
+                }
+                else{
+                    setSavedProducts(newProducts);
+                    alert("Added to favorites successfully !!");
+                }
             }
             else if (product.id === p_id && type === "cart") {
                 const newProducts = [...cartProducts, product];

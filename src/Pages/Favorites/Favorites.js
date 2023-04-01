@@ -3,7 +3,7 @@ import { ProductContext } from '../../contexts/ProductsProvider';
 
 const Favorites = () => {
 
-    const {savedProducts} = useContext(ProductContext);
+    const { savedProducts} = useContext(ProductContext);
 
     const heading = [
         {
