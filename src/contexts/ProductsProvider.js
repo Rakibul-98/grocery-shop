@@ -9,6 +9,8 @@ const ProductsProvider = ({ children }) => {
     const [cartProducts, setCartProducts] = useState([]);
     const [categoryProducts, setCategoryProducts] = useState([]);
     const [searchedItem, setSearchedItem] = useState([]);
+    const [alertText, setAlertText] = useState('');
+
 
 
     useEffect(() => {
@@ -18,20 +20,33 @@ const ProductsProvider = ({ children }) => {
     }, [])
 
     const handleAdd = (p_id, type) => {
+        const successAlert = document.getElementById("success-alert");
+        const warningAlert = document.getElementById("warning-alert");
+
         products.forEach(product => {
             if (product.id === p_id && type === "fav") {
                 const newProducts = [...savedProducts, product];
                 if(savedProducts.some(p=>p.id === p_id)){
-                    alert("Items already added in favorites.");
+                    warningAlert.style.display="block";
+                    setAlertText("Item already added");
                 }
                 else{
                     setSavedProducts(newProducts);
-                    alert("Added to favorites successfully !!");
+                    successAlert.style.display="block";
+                    setAlertText("Item added successful!!");
                 }
             }
             else if (product.id === p_id && type === "cart") {
                 const newProducts = [...cartProducts, product];
-                setCartProducts(newProducts);
+                if(cartProducts.some(p=>p.id === p_id)){
+                    warningAlert.style.display="block";
+                    setAlertText("Item is already in the cart.");
+                }
+                else{
+                    setCartProducts(newProducts);
+                    successAlert.style.display="block";
+                    setAlertText("Item is successfully added!!");
+                }
             }
         });
     }
@@ -75,7 +90,8 @@ const ProductsProvider = ({ children }) => {
         categoryProducts,
         handleSearchProduct,
         searchedItem,
-        handleAdd
+        handleAdd,
+        alertText
     }
     return (
         <ProductContext.Provider value={value}>

@@ -6,11 +6,13 @@ import FeatureBlog from '../FeatureBlog/FeatureBlog';
 import Offer from '../Offer/Offer';
 import Cart from '../../../Cart/Cart';
 import Favorites from '../../../Favorites/Favorites';
+import Alerts from '../../../Shared/Alerts/Alerts';
 
 
 const Home = () => {
     return (
         <div>
+            <Alerts/>
             <Header/>
             <Cart/>
             <Favorites/>
