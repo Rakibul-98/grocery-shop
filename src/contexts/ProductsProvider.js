@@ -19,33 +19,44 @@ const ProductsProvider = ({ children }) => {
             .then(data => setProducts(data))
     }, [])
 
-    const handleAdd = (p_id, type) => {
+    const addAlert = (type) => {
         const successAlert = document.getElementById("success-alert");
         const warningAlert = document.getElementById("warning-alert");
+        if (type === "warning") {
+            successAlert.style.display = "none";
+            warningAlert.style.display = "block";
+            setAlertText("Item already added");
+        }
+        else if(type === "success"){
+            warningAlert.style.display = "none";
+            successAlert.style.display = "block";
+            setAlertText("Item is successfully added!!");
+        }
+    }
+
+    const handleAdd = (p_id, type) => {
 
         products.forEach(product => {
-            if (product.id === p_id && type === "fav") {
-                const newProducts = [...savedProducts, product];
-                if(savedProducts.some(p=>p.id === p_id)){
-                    warningAlert.style.display="block";
-                    setAlertText("Item already added");
+            if (product.id === p_id) {
+                if (type === "fav") {
+                    const newProducts = [...savedProducts, product];
+                    if (savedProducts.some(p => p.id === p_id)) {
+                        addAlert("warning");
+                    }
+                    else {
+                        setSavedProducts(newProducts);
+                        addAlert("success");
+                    }
                 }
-                else{
-                    setSavedProducts(newProducts);
-                    successAlert.style.display="block";
-                    setAlertText("Item added successful!!");
-                }
-            }
-            else if (product.id === p_id && type === "cart") {
-                const newProducts = [...cartProducts, product];
-                if(cartProducts.some(p=>p.id === p_id)){
-                    warningAlert.style.display="block";
-                    setAlertText("Item is already in the cart.");
-                }
-                else{
-                    setCartProducts(newProducts);
-                    successAlert.style.display="block";
-                    setAlertText("Item is successfully added!!");
+                else if (type === "cart") {
+                    const newProducts = [...cartProducts, product];
+                    if (cartProducts.some(p => p.id === p_id)) {
+                        addAlert("warning")
+                    }
+                    else {
+                        setCartProducts(newProducts);
+                        addAlert("success");
+                    }
                 }
             }
         });
@@ -70,12 +81,12 @@ const ProductsProvider = ({ children }) => {
             searchCardStyle.display = "block";
         }
         else {
-            searchAlert.style.display="block";
+            searchAlert.style.display = "block";
             if (searchBox.value === "") {
-                searchAlert.innerHTML=`<p>Warning: Search box can not be empty !!!</p>`;
+                searchAlert.innerHTML = `<p>Warning: Search box can not be empty !!!</p>`;
             }
             else {
-                searchAlert.innerHTML=`<p>Item not found !!!<br/>Please try another item.</p>`;
+                searchAlert.innerHTML = `<p>Item not found !!!<br/>Please try another item.</p>`;
             }
             searchCardStyle.display = "none";
         }

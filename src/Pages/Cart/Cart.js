@@ -19,13 +19,13 @@ const Cart = () => {
         },
     ]
 
-    const {cartProducts} = useContext(ProductContext);
+    const { cartProducts } = useContext(ProductContext);
 
     return (
-        <div className='relative'>
+        <div className=''>
             <input type="checkbox" id="cart-modal" className="modal-toggle" />
             <div className="modal justify-end">
-                <div className="modal-box h-screen w-96 mr-5">
+                <div className="modal-box h-screen w-96 mr-5 relative">
                     <div>
                         <label htmlFor="cart-modal" className="btn btn-sm btn-error text-white btn-circle absolute right-2 top-2">✕</label>
                         <h1 className='font-semibold text-3xl text-center'>Shopping Cart</h1>
@@ -53,9 +53,7 @@ const Cart = () => {
                             )
                         }
                     </div>
-                        <div className="absolute bottom-2 w-11/12 left-0 right-0 mx-auto">
-                            <Link to='/checkout'><label htmlFor="cart-modal" className="btn w-full hover:bg-success">Review Cart</label></Link>
-                        </div>
+                    <Link to='/checkout'><label htmlFor="cart-modal" className="btn w-full hover:bg-success modal-action justify-center">Review Cart</label></Link>
                 </div>
             </div>
         </div>
