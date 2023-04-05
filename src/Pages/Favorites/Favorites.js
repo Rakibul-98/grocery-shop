@@ -3,7 +3,7 @@ import { ProductContext } from '../../contexts/ProductsProvider';
 
 const Favorites = () => {
 
-    const { savedProducts} = useContext(ProductContext);
+    const { savedProducts } = useContext(ProductContext);
 
     const heading = [
         {
@@ -28,28 +28,28 @@ const Favorites = () => {
                         <h1 className='font-semibold text-3xl text-center'>Favorite Items</h1>
                         <hr className='mt-2 h-1 bg-emerald-400'></hr>
                     </div>
-                    <div className="mt-3 grid grid-cols-5 text-center">
-                        {
-                            heading.map(h =>
-                                <h4 key={h.id} className={`text-lg font-semibold col-span-${h.span} mb-5`}>{h.title}</h4>
-                            )
-                        }
-                        {
-                            savedProducts.map(fp =>
-                                <>
-                                    <div className='col-span-3 my-2'>
-                                        <p className='text-left'>{fp.name}</p>
-                                    </div>
-                                    <div className='col-span-2'>
-                                        <p>${fp.price}</p>
-                                    </div>
-                                </>
-                            )
-                        }
-                    </div>
-                </div>
-                <div>
+                    {
+                        savedProducts.length ? <div className="mt-3 grid grid-cols-5 text-center">
+                            {
+                                heading.map(h =>
+                                    <h4 key={h.id} className={`text-lg font-semibold col-span-${h.span} mb-5`}>{h.title}</h4>
+                                )
+                            }
+                            {
 
+                                savedProducts.map(fp =>
+                                    <>
+                                        <div className='col-span-3 my-2'>
+                                            <p className='text-left'>{fp.name}</p>
+                                        </div>
+                                        <div className='col-span-2'>
+                                            <p>${fp.price}</p>
+                                        </div>
+                                    </>
+                                )
+                            }
+                        </div> : <p className='text-xl text-orange-500 text-center  mt-16'>No items found!!</p>
+                    }
                 </div>
             </div>
         </div>

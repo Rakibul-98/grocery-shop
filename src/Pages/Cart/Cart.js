@@ -31,29 +31,37 @@ const Cart = () => {
                         <h1 className='font-semibold text-3xl text-center'>Shopping Cart</h1>
                         <hr className='mt-2 h-1 bg-emerald-400'></hr>
                     </div>
-                    <div className="mt-3 grid grid-cols-5 text-center">
-                        {
-                            heading.map(h =>
-                                <h4 key={h.id} className={`text-lg font-semibold col-span-${h.span} mb-5`}>{h.title}</h4>
-                            )
-                        }
-                        {
-                            cartProducts.map(cp =>
-                                <>
-                                    <div className='col-span-3 my-2'>
-                                        <p className='text-left'>{cp.name}</p>
-                                    </div>
-                                    <div className='col-span-2 flex items-center justify-evenly'>
-                                        <span className='text-xl text-red-300 hover:text-red-600 hover:cursor-pointer'><AiOutlineMinusCircle /></span>
-                                        <p>{cp.price}</p>
-                                        <span className='text-xl
-                                        text-emerald-300  hover:text-emerald-500 hover:cursor-pointer'><AiOutlinePlusCircle /></span>
-                                    </div>
-                                </>
-                            )
-                        }
-                    </div>
-                    <Link to='/checkout'><label htmlFor="cart-modal" className="btn w-full hover:bg-success modal-action justify-center">Review Cart</label></Link>
+                    {
+                        cartProducts.length ?
+                            <div>
+                                <div className="mt-3 grid grid-cols-5 text-center">
+                                    {
+                                        heading.map(h =>
+                                            <h4 key={h.id} className={`text-lg font-semibold col-span-${h.span} mb-5`}>{h.title}</h4>
+                                        )
+                                    }
+                                    {
+                                        cartProducts.map(cp =>
+                                            <>
+                                                <div className='col-span-3 my-2'>
+                                                    <p className='text-left'>{cp.name}</p>
+                                                </div>
+                                                <div className='col-span-2 flex items-center justify-evenly'>
+                                                    <span className='text-xl text-red-300 hover:text-red-600 hover:cursor-pointer'><AiOutlineMinusCircle /></span>
+                                                    <p>{cp.price}</p>
+                                                    <span className='text-xl
+                                            text-emerald-300  hover:text-emerald-500 hover:cursor-pointer'><AiOutlinePlusCircle /></span>
+
+                                                </div>
+                                            </>
+                                        )
+                                    }
+
+                                </div>
+                                <Link to='/checkout'><label htmlFor="cart-modal" className="btn  hover:bg-success w-full modal-action justify-center">Review Cart</label></Link>
+                            </div>
+                            : <p className='text-xl text-orange-500 text-center  mt-16'>No items found!! <br /> Add items to review.</p>
+                    }
                 </div>
             </div>
         </div>
