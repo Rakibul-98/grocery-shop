@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
+    const { register, handleSubmit, reset } = useForm();
+    const {login} = useContext(AuthContext);
 
-    const { register, handleSubmit } = useForm();
     const handleLogin = (data) => {
-        console.log(data)
+        login(data.email, data.password)
+        .then(result=>{
+            alert("Login Successful")
+            reset();
+        })
+        .catch(error=>{
+            alert(error.message)
+        })
     }
 
     return (

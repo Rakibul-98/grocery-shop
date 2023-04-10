@@ -1,12 +1,19 @@
-import { Navbar } from 'flowbite-react';
+import { Button, Navbar } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { BsBagDash, BsFillHeartFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 import { ProductContext } from '../../../contexts/ProductsProvider';
 
 const NavBar = () => {
+    const { cartProducts, savedProducts } = useContext(ProductContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    const {cartProducts, savedProducts} = useContext(ProductContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(err => alert(err))
+    }
 
     const nav = [
         {
@@ -28,11 +35,6 @@ const NavBar = () => {
             id: 1,
             name: "About",
             link: "/about",
-        },
-        {
-            id: 4,
-            name: "Login",
-            link: "/login",
         }
     ]
 
@@ -44,6 +46,7 @@ const NavBar = () => {
             </Navbar.Brand>
             <div className="flex md:order-2">
                 <div className='flex text-2xl '>
+                    {/* <p>{user}</p> */}
                     <div className="indicator">
                         <span className="indicator-item bg-fuchsia-500 border-0 badge p-1 badge-secondary text-xs font-bold">{savedProducts.length}</span>
                         <label htmlFor="favorites-modal" className='hover:text-emerald-400 cursor-pointer'><BsFillHeartFill /></label>
@@ -59,6 +62,18 @@ const NavBar = () => {
             <Navbar.Collapse>
                 {
                     nav.map(n => <Link className='text-lg hover:text-emerald-500 font-semibold border-gray-100 hover:bg-gray-100 border-b md:border-b-0 p-2 md:p-0 md:hover:bg-transparent' key={n.id} to={n.link}>{n.name}</Link>)
+                }
+                {user ? <Button gradientDuoTone="cyanToBlue" size="xs" onClick={handleLogOut}>Log Out</Button> :
+                    <Link to="/login">
+                        <Button
+                            className='flex align-middle'
+                            size="xs"
+                            outline={true}
+                            gradientDuoTone="greenToBlue"
+                        >
+                            Login
+                        </Button>
+                    </Link>
                 }
             </Navbar.Collapse>
         </Navbar>
