@@ -45,8 +45,8 @@ const NavBar = () => {
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"> LOGO </span>
             </Navbar.Brand>
             <div className="flex md:order-2">
-                <div className='flex text-2xl '>
-                    {/* <p>{user}</p> */}
+                <p className='mr-2 font-bold'>{user?.displayName}</p>
+                <div className='flex text-2xl align-middle'>
                     <div className="indicator">
                         <span className="indicator-item bg-fuchsia-500 border-0 badge p-1 badge-secondary text-xs font-bold">{savedProducts.length}</span>
                         <label htmlFor="favorites-modal" className='hover:text-emerald-400 cursor-pointer'><BsFillHeartFill /></label>
@@ -56,14 +56,16 @@ const NavBar = () => {
                         <label htmlFor="cart-modal" className='hover:text-emerald-400 cursor-pointer'><BsBagDash /></label>
                     </div>
                 </div>
-                <p>Total: <span className='font-bold'>$150.00</span></p>
             </div>
             <Navbar.Toggle />
             <Navbar.Collapse>
                 {
                     nav.map(n => <Link className='text-lg hover:text-emerald-500 font-semibold border-gray-100 hover:bg-gray-100 border-b md:border-b-0 p-2 md:p-0 md:hover:bg-transparent' key={n.id} to={n.link}>{n.name}</Link>)
                 }
-                {user ? <Button gradientDuoTone="cyanToBlue" size="xs" onClick={handleLogOut}>Log Out</Button> :
+                {user ? <>
+                    <Link className='text-lg hover:text-emerald-500 font-semibold border-gray-100 hover:bg-gray-100 border-b md:border-b-0 p-2 md:p-0 md:hover:bg-transparent' to='/review'>Review Cart</Link>
+                    <Button gradientDuoTone="cyanToBlue" size="xs" onClick={handleLogOut}>Log Out</Button>
+                </> :
                     <Link to="/login">
                         <Button
                             className='flex align-middle'

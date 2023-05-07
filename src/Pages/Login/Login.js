@@ -1,23 +1,27 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
     const { register, handleSubmit, reset } = useForm();
-    const {login} = useContext(AuthContext);
+    const { login, signInWithGoogle} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = (data) => {
         login(data.email, data.password)
-        .then(result=>{
-            alert("Login Successful")
-            reset();
-        })
-        .catch(error=>{
-            alert(error.message)
-        })
+            .then(result => {
+                alert("Login Successful");
+                navigate(from, { replace: true });
+                reset();
+            })
+            .catch(error => {
+                alert(error.message)
+            })
     }
 
     return (
@@ -31,11 +35,11 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" className="input input-bordered w-full max-w-xs" {...register("email")} required/>
+                            <input type="email" className="input input-bordered w-full max-w-xs" {...register("email")} required />
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" className="input input-bordered w-full max-w-xs" {...register("password")} required/>
+                            <input type="password" className="input input-bordered w-full max-w-xs" {...register("password")} required />
                             <label className="label">
                                 <span className="label-text">Forget Password?</span>
                             </label>
@@ -43,10 +47,10 @@ const Login = () => {
                             <p>Don't have any account? <Link className='text-primary underline' to="/register">Register here</Link></p>
                         </form>
                         <div className="divider">OR</div>
-                            <div className='flex justify-center text-3xl'>
-                                <button className='mr-5'><FcGoogle/></button>
-                                <button><FaFacebook/></button>
-                            </div>
+                        <div className='flex justify-center text-3xl'>
+                            <button onClick={signInWithGoogle} className='mr-5'><FcGoogle /></button>
+                            <button><FaFacebook /></button>
+                        </div>
                     </div>
                 </div>
             </div>

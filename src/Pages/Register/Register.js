@@ -2,21 +2,30 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
     const { register, handleSubmit, reset } = useForm();
+    
 
 
     const handleRegister = (data) => {
         createUser(data.email, data.password)
-        .then(result=>{
-            alert("Registration successful");
-            reset();
-        })
-        .catch(err=>alert(err))
+            .then(result => {
+                updateUser({
+                    displayName: data.name
+                })
+                    .then(() => {
+                        window.location.reload();
+                    })
+                    .catch(err => alert(err))
+                alert("Registration successful");
+                reset();
+            })
+            .catch(err => alert(err))
     }
 
     return (
@@ -31,21 +40,23 @@ const Register = () => {
                                 <span className="label-text">Name</span>
                             </label>
                             <input type="text" className="input input-bordered w-full max-w-xs" {...register("name")} />
+
                             <label className="label">
                                 <span className="label-text">Email</span>
-                            </label> 
-                            <input type="email" className="input input-bordered w-full max-w-xs" {...register("email")} required/>
+                            </label>
+                            <input type="email" className="input input-bordered w-full max-w-xs" {...register("email")} required />
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" className="input input-bordered w-full max-w-xs" {...register("password")} required/>
-                            <label className="label">
-                                <span className="label-text">Confirm Password</span>
-                            </label>
-                            <input type="password" className="input input-bordered w-full max-w-xs" {...register("confirm-password")} required/>
+                            <input type="password" className="input input-bordered w-full max-w-xs" {...register("password")} required />
                             <input className='btn btn-outline btn-success w-full max-w-xs my-3' type="submit" value="Register" />
                             <p>Already have any account? <Link className='text-primary underline' to="/login">Please Login</Link></p>
                         </form>
+                        <div className="divider">OR</div>
+                        <div className='flex justify-center text-3xl'>
+                            <button onClick={signInWithGoogle} className='mr-5'><FcGoogle /></button>
+                            <button><FaFacebook /></button>
+                        </div>
                     </div>
                 </div>
             </div>

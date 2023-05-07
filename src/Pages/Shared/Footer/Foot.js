@@ -83,7 +83,7 @@ const Foot = () => {
                         </div>
                     </div>
                     <Footer.Divider />
-                    <div className="w-full sm:flex sm:items-center sm:justify-between">
+                    <div className="w-10/12 mx-auto sm:flex sm:items-center sm:justify-between">
                         <Footer.Copyright
                             href="https://portfolio-rakibul.netlify.app/"
                             by="Rakibul Hasan™"

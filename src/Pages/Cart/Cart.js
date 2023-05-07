@@ -58,7 +58,7 @@ const Cart = () => {
                                     }
 
                                 </div>
-                                <Link to='/checkout'><label htmlFor="cart-modal" className="btn  hover:bg-success w-full modal-action justify-center">Review Cart</label></Link>
+                                <Link to='/review'><label htmlFor="cart-modal" className="btn  hover:bg-success w-full modal-action justify-center">Review Cart</label></Link>
                             </div>
                             : <p className='text-xl text-orange-500 text-center  mt-16'>No items found!! <br /> Add items to review.</p>
                     }
