@@ -3,11 +3,12 @@ import Cart from '../../Pages/Cart/Cart';
 import { ProductContext } from '../../contexts/ProductsProvider';
 import ProductCard from './ProductCard';
 import ShopMenu from './ShopMenu/ShopMenu';
-import Alerts from '../Shared/Alerts/Alerts';
+import useTitle from '../../Title/useTitle';
 
 const Shop = () => {
     
     const {products, categoryProducts} = useContext(ProductContext);
+    useTitle("Shop");
 
     let items = products;
     if (categoryProducts.length) {
@@ -16,7 +17,6 @@ const Shop = () => {
 
     return (
         <div className='my-10'>
-            <Alerts/>
             <Cart />
             <div className='group'>
                 <h1 className='text-center text-4xl font-semibold'>Products</h1>

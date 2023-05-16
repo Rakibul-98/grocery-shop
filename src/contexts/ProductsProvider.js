@@ -1,4 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
+import { addToDb, getShoppingCart } from '../cartManagement/cartManagement';
+import { toast } from 'react-hot-toast';
 
 export const ProductContext = createContext([]);
 
@@ -9,8 +11,6 @@ const ProductsProvider = ({ children }) => {
     const [cartProducts, setCartProducts] = useState([]);
     const [categoryProducts, setCategoryProducts] = useState([]);
     const [searchedItem, setSearchedItem] = useState([]);
-    const [alertText, setAlertText] = useState('');
-
 
 
     useEffect(() => {
@@ -19,20 +19,39 @@ const ProductsProvider = ({ children }) => {
             .then(data => setProducts(data))
     }, [])
 
-    const addAlert = (type) => {
-        const successAlert = document.getElementById("success-alert");
-        const warningAlert = document.getElementById("warning-alert");
-        if (type === "warning") {
-            successAlert.style.display = "none";
-            warningAlert.style.display = "block";
-            setAlertText("Item already added");
+    useEffect(()=>{
+        const storedCart = getShoppingCart();
+        const savedCart = [];
+        for (const id in storedCart) {
+            const addedProduct = products.find(product => product.id === parseInt(id));
+            if(addedProduct){
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                savedCart.push(addedProduct);
+            }
         }
-        else if(type === "success"){
-            warningAlert.style.display = "none";
-            successAlert.style.display = "block";
-            setAlertText("Item is successfully added!!");
+        setCartProducts(savedCart);
+    },[products])
+
+    const addToCart = (selectedProduct) =>{
+        let newCart =[];
+        const exists = cartProducts.find(product => product.id === selectedProduct.id);
+        if(!exists){
+            toast.success("Item added successfully")
+            selectedProduct.quantity = 1;
+            newCart = [...cartProducts, selectedProduct];
         }
+        else{
+            toast.error("Item already in cart")
+            const remaining = cartProducts.filter(product => product.id !== selectedProduct.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...remaining, exists];
+        }
+        setCartProducts(newCart);
+        console.log(cartProducts.length)
+        addToDb(selectedProduct.id);
     }
+
 
     const handleAdd = (p_id, type) => {
 
@@ -41,21 +60,9 @@ const ProductsProvider = ({ children }) => {
                 if (type === "fav") {
                     const newProducts = [...savedProducts, product];
                     if (savedProducts.some(p => p.id === p_id)) {
-                        addAlert("warning");
                     }
                     else {
                         setSavedProducts(newProducts);
-                        addAlert("success");
-                    }
-                }
-                else if (type === "cart") {
-                    const newProducts = [...cartProducts, product];
-                    if (cartProducts.some(p => p.id === p_id)) {
-                        addAlert("warning")
-                    }
-                    else {
-                        setCartProducts(newProducts);
-                        addAlert("success");
                     }
                 }
             }
@@ -102,7 +109,7 @@ const ProductsProvider = ({ children }) => {
         handleSearchProduct,
         searchedItem,
         handleAdd,
-        alertText
+        addToCart
     }
     return (
         <ProductContext.Provider value={value}>

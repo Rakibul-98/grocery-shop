@@ -39,7 +39,7 @@ const NavBar = () => {
     ]
 
     return (
-        <Navbar className='bg-opacity-0 pt-5' fluid={true} rounded={true}>
+        <Navbar className='pt-5 sticky top-0 z-50' fluid={true} rounded={true}>
             <Navbar.Brand href="/">
                 <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="FlowBite Logo" />
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"> LOGO </span>
@@ -68,7 +68,7 @@ const NavBar = () => {
                 </> :
                     <Link to="/login">
                         <Button
-                            className='flex align-middle'
+                            className='flex align-middle mt-2 md:mt-0'
                             size="xs"
                             outline={true}
                             gradientDuoTone="greenToBlue"

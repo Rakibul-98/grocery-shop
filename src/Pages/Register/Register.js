@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../Title/useTitle';
 
 const Register = () => {
 
-    const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
+    const { createUser, updateUser, signInWithGoogle, signInWithFb } = useContext(AuthContext);
     const { register, handleSubmit, reset } = useForm();
-    
+    const googleProvider = new GoogleAuthProvider();
+    const fbProvider = new FacebookAuthProvider();
+    useTitle("Register");
 
 
     const handleRegister = (data) => {
@@ -19,7 +23,7 @@ const Register = () => {
                     displayName: data.name
                 })
                     .then(() => {
-                        window.location.reload();
+                        window.location.pathname="/"
                     })
                     .catch(err => alert(err))
                 alert("Registration successful");
@@ -27,6 +31,34 @@ const Register = () => {
             })
             .catch(err => alert(err))
     }
+
+    const handleGoogleSignIn = ()=>{
+        signInWithGoogle(googleProvider)
+        .then(() => {
+            window.location.pathname="/"
+        })
+        .catch((error) => {
+            alert(error);
+        });
+    }
+
+    // const handleFbSignIn = ()=>{
+    //     signInWithFb(fbProvider)
+    //     .then((result) => {
+    //         // The signed-in user info.
+    //         const user = result.user;
+        
+    //         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    //         const credential = FacebookAuthProvider.credentialFromResult(result);
+    //         const accessToken = credential.accessToken;
+        
+    //         // IdP data available using getAdditionalUserInfo(result)
+    //         // ...
+    //       })
+    //       .catch((error) => {
+    //         console.log(error)
+    //       });
+    // }
 
     return (
         <div className="hero bg-base-200 pb-10 lg:pb-0">
@@ -54,7 +86,7 @@ const Register = () => {
                         </form>
                         <div className="divider">OR</div>
                         <div className='flex justify-center text-3xl'>
-                            <button onClick={signInWithGoogle} className='mr-5'><FcGoogle /></button>
+                            <button onClick={handleGoogleSignIn} className='mr-5'><FcGoogle /></button>
                             <button><FaFacebook /></button>
                         </div>
                     </div>

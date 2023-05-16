@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import { ProductContext } from '../../../../contexts/ProductsProvider';
 import ProductCard from '../../../Shop/ProductCard';
+import useTitle from '../../../../Title/useTitle';
 
 const FeatureItem = () => {
 
     const { products, categoryProducts } = useContext(ProductContext);
+    useTitle("Feature Items");
+
 
     const handleGoTop = () => {
         document.documentElement.scrollTop = 0;

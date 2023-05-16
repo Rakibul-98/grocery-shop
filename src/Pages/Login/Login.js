@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import useTitle from '../../Title/useTitle';
 
 const Login = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -11,6 +13,8 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
+    const googleProvider = new GoogleAuthProvider();
+    useTitle("Login");
 
     const handleLogin = (data) => {
         login(data.email, data.password)
@@ -22,6 +26,16 @@ const Login = () => {
             .catch(error => {
                 alert(error.message)
             })
+    }
+
+    const handleGoogleLogIn = () =>{
+        signInWithGoogle(googleProvider)
+        .then((result) => {
+            navigate(from, { replace: true });
+        })
+        .catch((error) => {
+            alert(error);
+        });
     }
 
     return (
@@ -48,7 +62,7 @@ const Login = () => {
                         </form>
                         <div className="divider">OR</div>
                         <div className='flex justify-center text-3xl'>
-                            <button onClick={signInWithGoogle} className='mr-5'><FcGoogle /></button>
+                            <button onClick={handleGoogleLogIn} className='mr-5'><FcGoogle /></button>
                             <button><FaFacebook /></button>
                         </div>
                     </div>

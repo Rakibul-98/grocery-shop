@@ -5,6 +5,7 @@ const Favorites = () => {
 
     const { savedProducts } = useContext(ProductContext);
 
+
     const heading = [
         {
             id: 1,

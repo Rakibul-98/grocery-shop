@@ -1,8 +1,11 @@
 import React from 'react';
 import NavBar from '../Shared/Navbar/NavBar';
 import Foot from '../Shared/Footer/Foot';
+import useTitle from '../../Title/useTitle';
 
 const Review = () => {
+    useTitle("Review");
+
     return (
         <div>
             <NavBar/>
