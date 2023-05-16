@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { addToDb, getShoppingCart } from '../cartManagement/cartManagement';
+import { addToDb, addToFavDb, getFavCart, getShoppingCart } from '../cartManagement/cartManagement';
 import { toast } from 'react-hot-toast';
 
 export const ProductContext = createContext([]);
@@ -21,6 +21,8 @@ const ProductsProvider = ({ children }) => {
 
     useEffect(()=>{
         const storedCart = getShoppingCart();
+        const storedFav = getFavCart();
+        const savedFav = [];
         const savedCart = [];
         for (const id in storedCart) {
             const addedProduct = products.find(product => product.id === parseInt(id));
@@ -30,7 +32,16 @@ const ProductsProvider = ({ children }) => {
                 savedCart.push(addedProduct);
             }
         }
+        for (const id in storedFav) {
+            const addedItem = products.find(item => item.id === parseInt(id));
+            if(addedItem){
+                const quantity = storedCart[id];
+                addedItem.quantity = quantity;
+                savedFav.push(addedItem);
+            }
+        }
         setCartProducts(savedCart);
+        setSavedProducts(savedFav);
     },[products])
 
     const addToCart = (selectedProduct) =>{
@@ -48,25 +59,25 @@ const ProductsProvider = ({ children }) => {
             newCart = [...remaining, exists];
         }
         setCartProducts(newCart);
-        console.log(cartProducts.length)
         addToDb(selectedProduct.id);
     }
 
-
-    const handleAdd = (p_id, type) => {
-
-        products.forEach(product => {
-            if (product.id === p_id) {
-                if (type === "fav") {
-                    const newProducts = [...savedProducts, product];
-                    if (savedProducts.some(p => p.id === p_id)) {
-                    }
-                    else {
-                        setSavedProducts(newProducts);
-                    }
-                }
-            }
-        });
+    const addToFav = (selectedItem) =>{
+        let newCart = [];
+        const exists = savedProducts.find(product => product.id === selectedItem.id);
+        if(!exists){
+            toast.success("Item added successfully")
+            selectedItem.quantity = 1;
+            newCart = [...savedProducts, selectedItem];
+        }
+        else{
+            toast.error("Item already added");
+            const remaining = savedProducts.filter(product => product.id !== selectedItem.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...remaining, exists];
+        }
+        setSavedProducts(newCart);
+        addToFavDb(selectedItem.id);
     }
 
     const handleMenuProduct = (category) => {
@@ -103,13 +114,15 @@ const ProductsProvider = ({ children }) => {
     const value = {
         products,
         cartProducts,
+        setCartProducts,
         savedProducts,
+        setSavedProducts,
         handleMenuProduct,
         categoryProducts,
         handleSearchProduct,
         searchedItem,
-        handleAdd,
-        addToCart
+        addToCart,
+        addToFav
     }
     return (
         <ProductContext.Provider value={value}>

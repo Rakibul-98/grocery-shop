@@ -13,6 +13,12 @@ const Cart = () => {
         console.log(id, type)
     }
 
+    // const handleRemoveItem = (id) =>{
+    //     const remaining = cartProducts.filter(product => product.id !== id);
+    //     setCartProducts(remaining);
+    //     removeFromDb(id);
+    // }
+
     return (
         <div>
             <input type="checkbox" id="cart-modal" className="modal-toggle" />

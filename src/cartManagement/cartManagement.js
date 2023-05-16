@@ -13,6 +13,26 @@ const addToDb = id => {
     localStorage.setItem("shopping-cart", JSON.stringify(shoppingCart));
 }
 
+const addToFavDb = id =>{
+    let favCart = getFavCart();
+
+    const quantity = favCart[id];
+    if(!quantity){
+        favCart[id] = 1;
+    }
+    localStorage.setItem("fav-cart", JSON.stringify(favCart));
+}
+
+// get fav cart
+const getFavCart =()=>{
+    let favCart = {};
+    const savedItem = localStorage.getItem("fav-cart");
+    if(savedItem){
+        favCart = JSON.parse(savedItem);
+    }
+    return favCart;
+}
+
 // get existing cart
 const getShoppingCart = () => {
     let shoppingCart = {};
@@ -25,4 +45,21 @@ const getShoppingCart = () => {
     return shoppingCart;
 }
 
-export { addToDb, getShoppingCart }
+const removeFromDb = (id, type) => {
+    if(type === "cart"){
+        const shoppingCart = getShoppingCart();
+        if (id in shoppingCart) {
+            delete shoppingCart[id];
+            localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
+        }
+    }
+    else if(type === "fav"){
+        const favCart = getFavCart();
+        if(id in favCart){
+            delete favCart[id];
+            localStorage.setItem('fav-cart', JSON.stringify(favCart));
+        }
+    }
+}
+
+export { addToDb, getShoppingCart, removeFromDb, addToFavDb, getFavCart};
