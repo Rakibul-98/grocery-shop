@@ -47,7 +47,7 @@ const Favorites = () => {
                                     </tbody>
                                     
                                 </table>
-                            </div> : <p className='text-xl text-orange-500 text-center  mt-16'>No items found!!</p>
+                            </div> : <p className='text-xl text-orange-500 text-center  mt-16'>You didn't add any item yet. <br />Please add your favorite item.</p>
                     }
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
+import { MdShoppingCartCheckout } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { ProductContext } from '../../contexts/ProductsProvider';
 import useTitle from '../../Title/useTitle';
@@ -12,12 +13,6 @@ const Cart = () => {
     const handleQuantity = (id, type) => {
         console.log(id, type)
     }
-
-    // const handleRemoveItem = (id) =>{
-    //     const remaining = cartProducts.filter(product => product.id !== id);
-    //     setCartProducts(remaining);
-    //     removeFromDb(id);
-    // }
 
     return (
         <div>
@@ -46,18 +41,18 @@ const Cart = () => {
                                                     <tr key={product.id}>
                                                         <td>{product.name}</td>
                                                         <td className=' flex justify-center items-center'>
-                                                            <span onClick={()=>handleQuantity(product.id, "decrease")} className='text-xl text-red-300 hover:text-red-600 hover:cursor-pointer'><AiOutlineMinusCircle /></span>
+                                                            {/* <span onClick={()=>handleQuantity(product.id, "decrease")} className='text-xl text-red-300 hover:text-red-600 hover:cursor-pointer'><AiOutlineMinusCircle /></span> */}
                                                             <span className='mx-2'>{product.quantity}</span>
-                                                            <span className='text-xl text-emerald-300  hover:text-emerald-500 hover:cursor-pointer'><AiOutlinePlusCircle /></span>
+                                                            {/* <span className='text-xl text-emerald-300  hover:text-emerald-500 hover:cursor-pointer'><AiOutlinePlusCircle /></span> */}
                                                         </td>
                                                     </tr>)
                                             }
                                         </tbody>
                                     </table>
                                 </div>
-                                <Link to='/review'><label htmlFor="cart-modal" className="btn  hover:bg-success w-full modal-action justify-center">Review Cart</label></Link>
+                                <Link to='/review'><label htmlFor="cart-modal" className="btn hover:bg-success w-full modal-action justify-center">Review Cart <span className='ml-3 text-xl'><MdShoppingCartCheckout/></span></label></Link>
                             </div>
-                            : <p className='text-xl text-orange-500 text-center  mt-16'>No items found!! <br /> Add items to review.</p>
+                            : <p className='text-xl text-orange-500 text-center  mt-16'>Your cart is empty <br /> Please add items.</p>
                     }
                 </div>
             </div>

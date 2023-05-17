@@ -41,8 +41,7 @@ const NavBar = () => {
     return (
         <Navbar className='pt-5 sticky top-0 z-50' fluid={true} rounded={true}>
             <Navbar.Brand href="/">
-                <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="FlowBite Logo" />
-                <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"> LOGO </span>
+                <span className="self-center whitespace-nowrap text-2xl font-bold uppercase text-emerald-500"> Organic Store </span>
             </Navbar.Brand>
             <div className="flex md:order-2">
                 <p className='mr-2 font-bold'>{user?.displayName}</p>

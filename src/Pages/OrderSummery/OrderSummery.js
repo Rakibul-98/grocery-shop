@@ -19,8 +19,8 @@ const OrderSummery = () => {
         total = total + parseInt(item.price) * item.quantity;
         quantity = quantity + item.quantity;
     }
-    tax = total * 0.2;
-    discount = total * 0.1;
+    tax = (total * 0.2).toFixed(2);
+    discount = (total * 0.1).toFixed(2);
 
     if (total > 100) {
         shipping = 19;
@@ -35,10 +35,10 @@ const OrderSummery = () => {
         shipping = 9;
     }
 
-    grandTotal = (total + tax + shipping) - discount;
+    grandTotal = ((total + parseFloat(tax) + shipping) - discount).toFixed(2);
 
     return (
-        <div className='mt-5'>
+        <div className='mt-5 mb-10'>
             <h3 className='text-center font-bold text-2xl'>Order Summery</h3>
             <hr className='my-2 h-1 w-11/12 mx-auto'></hr>
             <table className="w-9/12 mx-auto text-lg mt-5">
@@ -69,21 +69,25 @@ const OrderSummery = () => {
                     </tr>
                 </tbody>
             </table>
-            <div className='mt-10 w-8/12 mx-auto'>
+            {
+                cartProducts.length > 0 &&
+                <div className='mt-10 w-8/12 mx-auto'>
                 <Link to="/checkout">
                     <Button
                         gradientDuoTone="purpleToPink"
                         className='w-full mb-5'
+                        onClick={()=>handleClearCart("")}
                     >
                         CheckOut
                         <span className='ml-3'><FaArrowRight /></span>
                     </Button>
                 </Link>
-                <Button onClick={handleClearCart} className='w-full' gradientMonochrome="failure">
+                <Button onClick={()=>handleClearCart("clear")} className='w-full' gradientMonochrome="failure">
                     Clear Cart
                     <span className='ml-3 text-xl'><TbTrashX/></span>
                 </Button>
             </div>
+            }
         </div>
     );
 };

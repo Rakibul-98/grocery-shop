@@ -7,7 +7,6 @@ import useTitle from '../../../../Title/useTitle';
 const FeatureItem = () => {
 
     const { products, categoryProducts } = useContext(ProductContext);
-    useTitle("Feature Items");
 
 
     const handleGoTop = () => {

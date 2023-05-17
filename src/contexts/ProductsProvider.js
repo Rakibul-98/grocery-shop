@@ -48,16 +48,15 @@ const ProductsProvider = ({ children }) => {
         let newCart =[];
         const exists = cartProducts.find(product => product.id === selectedProduct.id);
         if(!exists){
-            toast.success("Item added successfully")
             selectedProduct.quantity = 1;
             newCart = [...cartProducts, selectedProduct];
         }
         else{
-            toast.error("Item already in cart")
             const remaining = cartProducts.filter(product => product.id !== selectedProduct.id);
             exists.quantity = exists.quantity + 1;
             newCart = [...remaining, exists];
         }
+        toast.success("Item added successfully")
         setCartProducts(newCart);
         addToDb(selectedProduct.id);
     }
@@ -80,7 +79,10 @@ const ProductsProvider = ({ children }) => {
         addToFavDb(selectedItem.id);
     }
 
-    const handleClearCart = () => {
+    const handleClearCart = (key) => {
+        if(key === "clear"){
+            alert("Are you sure to clear cart?")
+        }
         setCartProducts([]);
         deleteShoppingCart();
     }
