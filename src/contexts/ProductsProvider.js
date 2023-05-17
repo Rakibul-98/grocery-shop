@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { addToDb, addToFavDb, getFavCart, getShoppingCart } from '../cartManagement/cartManagement';
+import { addToDb, addToFavDb, deleteShoppingCart, getFavCart, getShoppingCart } from '../cartManagement/cartManagement';
 import { toast } from 'react-hot-toast';
 
 export const ProductContext = createContext([]);
@@ -80,6 +80,11 @@ const ProductsProvider = ({ children }) => {
         addToFavDb(selectedItem.id);
     }
 
+    const handleClearCart = () => {
+        setCartProducts([]);
+        deleteShoppingCart();
+    }
+
     const handleMenuProduct = (category) => {
         setCategoryProducts(products.filter(p => p.category === category));
     }
@@ -122,7 +127,8 @@ const ProductsProvider = ({ children }) => {
         handleSearchProduct,
         searchedItem,
         addToCart,
-        addToFav
+        addToFav,
+        handleClearCart
     }
     return (
         <ProductContext.Provider value={value}>

@@ -2,11 +2,11 @@ import React from 'react';
 import useTitle from '../../Title/useTitle';
 
 const CheckOut = () => {
-    useTitle("Check out");
+    useTitle("Check Out");
 
     return (
         <div>
-            
+            wjfwioew
         </div>
     );
 };

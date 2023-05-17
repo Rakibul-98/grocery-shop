@@ -62,4 +62,15 @@ const removeFromDb = (id, type) => {
     }
 }
 
-export { addToDb, getShoppingCart, removeFromDb, addToFavDb, getFavCart};
+const deleteShoppingCart = () => {
+    localStorage.removeItem('shopping-cart');
+}
+
+export { 
+    addToDb, 
+    getShoppingCart, 
+    removeFromDb, 
+    addToFavDb, 
+    getFavCart, 
+    deleteShoppingCart
+};
