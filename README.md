@@ -1,12 +1,16 @@
 # Grocery shop
 
-This website refers to an online shopping website. Here I designed the front-end and implemented by react js, tailwind css and flowBite css library.
+This is an e-commerce website for grocery products. It has a dynamic and
+responsive front-end design, shopping cart, and user authentication system. It can
+save users' previous shopping activity by accessing local storage.
 
 ## Core Features
 
-- Dropdown side nav with accordion
-- React Multi carousel
-- Responsive Design
+- User Authentication
+- Private Route
+- Interactive Carousel
+- Product Search
+- Store data in local storage
 
 ## Used Technologies
 
@@ -16,8 +20,9 @@ This website refers to an online shopping website. Here I designed the front-end
 - React,
 - Tailwind,
 - Flowbite,
+- FireBase
 - Multi Carousel,
-- Netlify
+- React Hot Toast
 
 
 ## Live link
