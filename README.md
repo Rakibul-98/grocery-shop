@@ -22,7 +22,7 @@ This website refers to an online shopping website. Here I designed the front-end
 
 ## Live link
 
-https://grocery-shop-rakibul.netlify.app/
+https://grocery-shop-70585.web.app/
 
 ## 🚀 About Me
 I'm a professional full stack developer. I have a degree on full-stack web development. I am currently studying in Computer Science and Engineering (CSE). 
