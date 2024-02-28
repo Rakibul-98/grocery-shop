@@ -10,10 +10,6 @@ const Cart = () => {
     const { cartProducts } = useContext(ProductContext);
     useTitle("Cart");
 
-    const handleQuantity = (id, type) => {
-        console.log(id, type)
-    }
-
     return (
         <div>
             <input type="checkbox" id="cart-modal" className="modal-toggle" />
@@ -41,9 +37,7 @@ const Cart = () => {
                                                     <tr key={product.id}>
                                                         <td>{product.name}</td>
                                                         <td className=' flex justify-center items-center'>
-                                                            {/* <span onClick={()=>handleQuantity(product.id, "decrease")} className='text-xl text-red-300 hover:text-red-600 hover:cursor-pointer'><AiOutlineMinusCircle /></span> */}
                                                             <span className='mx-2'>{product.quantity}</span>
-                                                            {/* <span className='text-xl text-emerald-300  hover:text-emerald-500 hover:cursor-pointer'><AiOutlinePlusCircle /></span> */}
                                                         </td>
                                                     </tr>)
                                             }
