@@ -42,28 +42,10 @@ const Register = () => {
         });
     }
 
-    // const handleFbSignIn = ()=>{
-    //     signInWithFb(fbProvider)
-    //     .then((result) => {
-    //         // The signed-in user info.
-    //         const user = result.user;
-        
-    //         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    //         const credential = FacebookAuthProvider.credentialFromResult(result);
-    //         const accessToken = credential.accessToken;
-        
-    //         // IdP data available using getAdditionalUserInfo(result)
-    //         // ...
-    //       })
-    //       .catch((error) => {
-    //         console.log(error)
-    //       });
-    // }
-
     return (
         <div className="hero bg-base-200 pb-10 lg:pb-0">
             <div className="hero-content flex-col lg:flex-row">
-                <img src="https://i.ibb.co/qrRT0bR/Mobile-login-pana.png" alt="" />
+                <img src="https://i.ibb.co/Tt1jRmh/Mobile-login-pana-1.png" alt="" />
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleSubmit(handleRegister)}>

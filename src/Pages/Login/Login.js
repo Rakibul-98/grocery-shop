@@ -41,7 +41,7 @@ const Login = () => {
     return (
         <div className="hero bg-base-200 pb-10 lg:pb-0">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <img src="https://i.ibb.co/R3d0KTK/Mobile-login-bro.png" alt="" />
+                <img src="https://i.ibb.co/j40tgwp/Mobile-login-bro-1.png" alt="" />
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
                         <form onSubmit={handleSubmit(handleLogin)}>

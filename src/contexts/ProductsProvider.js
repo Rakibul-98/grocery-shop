@@ -14,7 +14,7 @@ const ProductsProvider = ({ children }) => {
 
 
     useEffect(() => {
-        fetch("products.json")
+        fetch("https://grocery-server-rakibul.vercel.app/products")
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
