@@ -1,45 +1,97 @@
-# Grocery shop
 
-This is an e-commerce website for grocery products. It has a dynamic and
-responsive front-end design, shopping cart, and user authentication system. It can
-save users' previous shopping activity by accessing local storage.
+# Organic Store (React)
 
-## Core Features
+Organic Store is a dynamic e-commerce web application designed for a seamless user experience in browsing and purchasing organic products.  Built with modern web technologies, Organic Store ensures a visually appealing and efficient shopping experience.
+
+
+
+## Features
+
+- Responsive Design
 
 - User Authentication
+
 - Private Route
+
 - Interactive Carousel
+
 - Product Search
+
 - Store data in local storage
 
-## Used Technologies
-
-- HTML, 
-- CSS,
-- JavaScript,
-- React,
-- Tailwind,
-- Flowbite,
-- FireBase
-- Multi Carousel,
-- React Hot Toast
+## 🛠 Technologies
+React js, HTML 5, CSS 3, JavaScript, Tailwind CSS, React icons, Flowbite,
+FireBase, Multi Carousel, React Hot Toast
 
 
-## Live link
+## Demo
 
+Live Link: 
 https://grocery-shop-70585.web.app/
+## Screenshots
 
-## 🚀 About Me
-I'm a professional full stack developer. I have a degree on full-stack web development. I am currently studying in Computer Science and Engineering (CSE). 
+### Home page
+![SS 1](https://i.ibb.co/BKx0tY9/os.png)
 
-I am proficient in front-end technologies such as HTML, CSS, JavaScript, and front-end framework as React. 
+### Shop
+![Shop](https://i.ibb.co/4jBKv8m/shop.png)
 
-I can create pixel-perfect designs that are both aesthetically pleasing and functional. In addition, I am experienced in using version control tools like Git and GitHub, and I am comfortable working in collaborative environments with other developers and designers. 
+### Login
+![login](https://i.ibb.co/zGFzTWr/login.png)
 
-I have also expertise in back-end development language Java and authentication system Firebase. I am also experienced in database management using MySQL, and MongoDB.
+### Registration
+![registration](https://i.ibb.co/TP03NT7/register.png)
 
-Moreover, I have excellent problem-solving skills and I can work collaboratively with designers, project managers, and other developers. 
+### CArt
+![Cart](https://i.ibb.co/7WkWb5P/cart.png)
 
-I am keep up with the latest web development trends and constantly learning new technologies to improve my skills. I am passionate about performance optimization and know how to optimize web pages for speed and performance. 
+### Summery Page
+![order summery](https://i.ibb.co/gr7QbZm/summery.png)
 
-I have a strong foundation in web development technologies and I can work closely with designers and other developers to create high-quality web applications.
+### Checkout
+![order summery](https://i.ibb.co/SJbY6LX/checkout.png)
+## Installation
+
+Install grocery-shop
+
+```bash
+  npm install grocery-shop
+  cd grocery-shop
+```
+    
+## Run Locally
+
+Clone the project
+
+```bash
+  https://github.com/Rakibul-98/grocery-shop.git
+```
+
+Go to the project directory
+
+```bash
+  cd grocery-shop
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+## Author
+
+- [@Rakibul Hasan](https://github.com/Rakibul-98)
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://portfolio-rakibul.netlify.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rakibul-98/)
+
