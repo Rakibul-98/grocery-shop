@@ -40,7 +40,7 @@ const FeatureBlog = () => {
       </div>
       <div className="grid lg:grid-cols-3 gap-10 w-10/12 md:w-8/12 lg:w-10/12 mx-auto my-20">
         {blogs.map((blog) => (
-          <a href={blog.link}>
+          <a target="_blank" rel="noopener noreferrer" href={blog.link}>
             <div key={blog.id} className="hover:shadow-xl">
               <img className="h-80 w-full" src={blog.img} alt="" />
               <div className="pb-5 px-2">
