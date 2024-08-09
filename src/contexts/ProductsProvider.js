@@ -28,20 +28,20 @@ const ProductsProvider = ({ children }) => {
     const storedFav = getFavCart();
     const savedFav = [];
     const savedCart = [];
-    for (const id in storedCart) {
+    for (const _id in storedCart) {
       const addedProduct = products.find(
-        (product) => product.id === parseInt(id)
+        (product) => product._id === _id
       );
       if (addedProduct) {
-        const quantity = storedCart[id];
+        const quantity = storedCart[_id];
         addedProduct.quantity = quantity;
         savedCart.push(addedProduct);
       }
     }
-    for (const id in storedFav) {
-      const addedItem = products.find((item) => item.id === parseInt(id));
+    for (const _id in storedFav) {
+      const addedItem = products.find((item) => item._id === _id);
       if (addedItem) {
-        const quantity = storedCart[id];
+        const quantity = storedCart[_id];
         addedItem.quantity = quantity;
         savedFav.push(addedItem);
       }
@@ -53,27 +53,27 @@ const ProductsProvider = ({ children }) => {
   const addToCart = (selectedProduct) => {
     let newCart = [];
     const exists = cartProducts.find(
-      (product) => product.id === selectedProduct.id
+      (product) => product._id === selectedProduct._id
     );
     if (!exists) {
       selectedProduct.quantity = 1;
       newCart = [...cartProducts, selectedProduct];
     } else {
       const remaining = cartProducts.filter(
-        (product) => product.id !== selectedProduct.id
+        (product) => product._id !== selectedProduct._id
       );
       exists.quantity = exists.quantity + 1;
       newCart = [...remaining, exists];
     }
     toast.success("Item added successfully");
     setCartProducts(newCart);
-    addToDb(selectedProduct.id);
+    addToDb(selectedProduct._id);
   };
 
   const addToFav = (selectedItem) => {
     let newCart = [];
     const exists = savedProducts.find(
-      (product) => product.id === selectedItem.id
+      (product) => product._id === selectedItem._id
     );
     if (!exists) {
       toast.success("Item added successfully");
@@ -82,13 +82,13 @@ const ProductsProvider = ({ children }) => {
     } else {
       toast.error("Item already added");
       const remaining = savedProducts.filter(
-        (product) => product.id !== selectedItem.id
+        (product) => product._id !== selectedItem._id
       );
       exists.quantity = exists.quantity + 1;
       newCart = [...remaining, exists];
     }
     setSavedProducts(newCart);
-    addToFavDb(selectedItem.id);
+    addToFavDb(selectedItem._id);
   };
 
   const handleClearCart = (key) => {
@@ -121,9 +121,9 @@ const ProductsProvider = ({ children }) => {
     } else {
       searchAlert.style.display = "block";
       if (searchBox.value === "") {
-        searchAlert.innerHTML = `<p>Warning: Search box can not be empty !!!</p>`;
+        searchAlert.innerHTML = <p>Warning: Search box cannot be empty !!!</p>;
       } else {
-        searchAlert.innerHTML = `<p>Item not found !!!<br/>Please try another item.</p>`;
+        searchAlert.innerHTML = <p>Item not found !!!<br/>Please try another item.</p>;
       }
       searchCardStyle.display = "none";
     }

@@ -25,7 +25,7 @@ const Shop = () => {
             <ShopMenu/>
             <div className='grid w-11/12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 mx-auto'>
                 {
-                    items.map(product => <ProductCard key={product.id} product={product}></ProductCard>
+                    items.map(product => <ProductCard key={product._id} product={product}></ProductCard>
                     )
                 }
             </div>
