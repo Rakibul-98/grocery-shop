@@ -18,7 +18,7 @@ const ProductsProvider = ({ children }) => {
   const [searchedItem, setSearchedItem] = useState([]);
 
   useEffect(() => {
-    fetch("https://grocery-shop-server-theta.vercel.app/products")
+    fetch("https://grocery-shop-server.onrender.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
