@@ -8,6 +8,8 @@ import NotFound from "../Pages/NotFound/NotFound";
 import Register from "../Pages/Register/Register";
 import Review from "../Pages/Review/Review";
 import PrivateRoutes from "./PrivateRoutes";
+import Teams from "../Pages/Teams/Teams";
+import Blogs from "../Pages/Blogs/Blogs";
 const LazyShop = React.lazy(()=>import("../Pages/Shop/Shop"));
 
 export const router = createBrowserRouter([
@@ -44,5 +46,17 @@ export const router = createBrowserRouter([
     {
         path:'/review',
         element:<PrivateRoutes><Review/></PrivateRoutes>
+    },
+    {
+        path:'/teams',
+        element:<Teams/>
+    },
+    {
+        path:'/blogs',
+        element:<Blogs/>
+    },
+    {
+        path:'*',
+        element:<NotFound/>
     }
 ]);

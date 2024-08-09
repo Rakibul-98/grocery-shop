@@ -29,12 +29,12 @@ const NavBar = () => {
         {
             id: 3,
             name: "Blog",
-            link: "/blog",
+            link: "/blogs",
         },
         {
             id: 1,
             name: "About",
-            link: "/about",
+            link: "/teams",
         }
     ]
 

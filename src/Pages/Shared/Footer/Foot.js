@@ -50,10 +50,10 @@ const Foot = () => {
                             <div>
                             <Footer.Title title="about" />
                             <Footer.LinkGroup col={true}>
-                                <Footer.Link href="#">
+                                <Footer.Link href="/shop">
                                     Shop
                                 </Footer.Link>
-                                <Footer.Link href="#">
+                                <Footer.Link href="/teams">
                                     Team
                                 </Footer.Link>
                             </Footer.LinkGroup>

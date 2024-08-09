@@ -23,7 +23,7 @@ const Shop = () => {
                 <hr className='w-2/12 md:w-1/12 mx-auto h-1 bg-emerald-500 md:group-hover:w-2/12 group-hover:w-5/12 transition-width duration-500 ease-in-out mt-2'></hr>
             </div>
             <ShopMenu/>
-            <div className='grid w-11/12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 mx-auto'>
+            <div className='min-h-[500px] grid w-11/12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 mx-auto'>
                 {
                     items.map(product => <ProductCard key={product._id} product={product}></ProductCard>
                     )
