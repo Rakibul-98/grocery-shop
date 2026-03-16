@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Offer = () => {
 
     return (
-        <div className="grid lg:grid-cols-2 md:w-9/12 w-11/12 mx-auto my-20 gap-10">
+        <div className="grid lg:grid-cols-2 my-20 gap-10">
             <div className="bg-[url('https://i.ibb.co/jZLSvWv/pexels-vanessa-loring-5965991.jpg')] h-64 md:h-80 bg-cover flex items-center">
                 <div className='px-10'>
                     <h3 className='text-xl font-bold'>Fresh Vegetables</h3>

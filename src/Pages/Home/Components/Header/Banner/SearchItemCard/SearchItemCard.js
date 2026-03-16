@@ -10,6 +10,8 @@ const SearchItemCard = () => {
 
     const iconStyle = "mx-2 p-3 bg-white rounded-full hover:bg-orange-500 hover:text-white";
 
+
+
     return (
         <div id='search-item-card' className='group'>
             <img className='rounded-xl mx-auto' src={img} alt={name} />

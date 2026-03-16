@@ -57,7 +57,7 @@ const FeatureCarousel = () => {
     ]
 
     return (
-        <div className='w-11/12 md:w-9/12 mx-auto my-10'>
+        <div className=' my-10'>
             <Carousel
                 responsive={responsive}
                 infinite={true}

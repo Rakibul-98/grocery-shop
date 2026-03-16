@@ -30,7 +30,7 @@ const ReviewItems = ({ product }) => {
         </div>
         <div>
           <button
-            className="p-2 rounded-full bg-red-100 hover:text-orange-400 text-red-600 text-3xl"
+            className="p-3 rounded-full bg-red-100 hover:text-orange-400 text-red-600 text-xl"
             onClick={() => removeCartItem(product._id)}
           >
             <FaTrashAlt />

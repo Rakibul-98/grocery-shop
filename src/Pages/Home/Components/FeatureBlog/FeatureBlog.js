@@ -11,7 +11,7 @@ const FeatureBlog = () => {
       text: "Garlic is a highly nutritious and flavorful food that has been used for both culinary and medicinal purposes for thousands of years.",
       date: "May 4,2022",
       comments: "11",
-      link:"https://pinchofyum.com/how-you-should-be-doing-oat-bran-for-breakfast"
+      link: "https://pinchofyum.com/how-you-should-be-doing-oat-bran-for-breakfast"
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const FeatureBlog = () => {
       text: "Cinnamon is a popular spice that has been used for centuries for both culinary and medicinal purposes.",
       date: "Feb 10,2023",
       comments: "18",
-      link:"https://pinchofyum.com/honey-chipotle-chicken-skewers"
+      link: "https://pinchofyum.com/honey-chipotle-chicken-skewers"
     },
     {
       id: 3,
@@ -29,18 +29,18 @@ const FeatureBlog = () => {
       text: "Coriander, also known as cilantro or Chinese parsley, is an herb commonly used in cooking and traditional medicine.",
       date: "Jan 28,2022",
       comments: "8",
-      link:"https://pinchofyum.com/avocado-caesar-green-beans"
+      link: "https://pinchofyum.com/avocado-caesar-green-beans"
     },
   ];
   return (
     <div>
       <div className="group">
         <h1 className="text-4xl text-center font-semibold">Health Tips</h1>
-        <hr className="w-2/12 md:w-1/12 mx-auto h-2 bg-emerald-500 mt-3 md:group-hover:w-2/12 group-hover:w-5/12 transition-width duration-500 ease-in-out"></hr>
+        <hr className="w-2/12 md:w-1/12 mx-auto h-1 bg-emerald-500 mt-3 md:group-hover:w-2/12 group-hover:w-5/12 transition-width duration-500 ease-in-out"></hr>
       </div>
-      <div className="grid lg:grid-cols-3 gap-10 w-10/12 md:w-8/12 lg:w-10/12 mx-auto my-20">
+      <div className="grid lg:grid-cols-3 gap-10  mb-20 mt-10">
         {blogs.map((blog) => (
-          <a target="_blank" rel="noopener noreferrer" href={blog.link}>
+          <a key={blog.id} target="_blank" rel="noopener noreferrer" href={blog.link}>
             <div key={blog.id} className="hover:shadow-xl">
               <img className="h-80 w-full" src={blog.img} alt="" />
               <div className="pb-5 px-2">

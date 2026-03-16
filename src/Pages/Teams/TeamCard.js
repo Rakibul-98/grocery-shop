@@ -1,13 +1,13 @@
 import { Card } from "flowbite-react";
 import React from "react";
 
-export default function TeamCard({team}) {
+export default function TeamCard({ team }) {
 
 
-    console.log(team);
-    const {name, title, description, image} = team;
+  console.log(team);
+  const { name, title, description, image } = team;
   return (
-    <Card className="max-w-sm my-7">
+    <Card className="">
       <div className="flex justify-end px-4 pt-4"></div>
       <div className="flex flex-col items-center pb-10">
         <img

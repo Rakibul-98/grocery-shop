@@ -103,33 +103,71 @@ const ProductsProvider = ({ children }) => {
     setCategoryProducts(products.filter((p) => p.category === category));
   };
 
+  // const handleSearchProduct = () => {
+  //   const searchBox = document.getElementById("searchBox");
+
+  //   const searchCardStyle = document.getElementById("search-item-card").style;
+
+  //   const searchAlert = document.getElementById("search-bar-alert");
+
+  //   const newItem = products.find((p) =>
+  //     p.name.toLowerCase().match(searchBox.value.toLowerCase())
+  //   );
+
+  //   if (searchBox.value && newItem) {
+  //     searchAlert.style.display = "none";
+  //     setSearchedItem(newItem);
+  //     searchCardStyle.display = "block";
+  //   } else {
+  //     searchAlert.style.display = "block";
+  //     if (searchBox.value === "") {
+  //       searchAlert.innerHTML = <p>Warning: Search box cannot be empty !!!</p>;
+  //     } else {
+  //       searchAlert.innerHTML = <p>Item not found !!!<br />Please try another item.</p>;
+  //     }
+  //     searchCardStyle.display = "none";
+  //   }
+  //   searchBox.value = "";
+  // };
+
   const handleSearchProduct = () => {
     const searchBox = document.getElementById("searchBox");
-
-    const searchCardStyle = document.getElementById("search-item-card").style;
-
+    const searchCardStyle = document.getElementById("search-item-card")?.style;
     const searchAlert = document.getElementById("search-bar-alert");
 
-    const newItem = products.find((p) =>
-      p.name.toLowerCase().match(searchBox.value.toLowerCase())
+    if (!searchBox || !searchCardStyle || !searchAlert) return;
+
+    const searchValue = searchBox.value.trim();
+
+    if (!searchValue) {
+      // Empty search
+      searchAlert.style.display = "block";
+      searchAlert.innerHTML = "Warning: Search box cannot be empty !!!";
+      searchCardStyle.display = "none";
+      setSearchedItem([]);
+      searchBox.value = "";
+      return;
+    }
+
+    const foundItem = products.find((p) =>
+      p.name.toLowerCase().includes(searchValue.toLowerCase())
     );
 
-    if (searchBox.value && newItem) {
+    if (foundItem) {
+      // Item found
       searchAlert.style.display = "none";
-      setSearchedItem(newItem);
+      setSearchedItem(foundItem);
       searchCardStyle.display = "block";
     } else {
+      // Item not found
       searchAlert.style.display = "block";
-      if (searchBox.value === "") {
-        searchAlert.innerHTML = <p>Warning: Search box cannot be empty !!!</p>;
-      } else {
-        searchAlert.innerHTML = <p>Item not found !!!<br/>Please try another item.</p>;
-      }
+      searchAlert.innerHTML = "Item not found !!!<br />Please try another item.";
       searchCardStyle.display = "none";
+      setSearchedItem([]);
     }
+
     searchBox.value = "";
   };
-
   const value = {
     products,
     cartProducts,

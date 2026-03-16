@@ -34,16 +34,15 @@ const Foot = () => {
     ]
     
     return (
-        <div>
-            <Footer container={true}>
-                <div className="w-full">
+        <div className='pb-5'>
+            <footer >
+                <div className="max-w-7xl mx-auto border-t pt-7">
                     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                         <div>
-                            <Footer.Brand
-                            href="https://portfolio-rakibul.netlify.app/"
-                            src="https://i.ibb.co/n7s9vgT/logo.png"
+                            <Footer.Brand 
+                            href="https://www.rakibulhasandev.com/"
                             alt=""
-                            name="Rakibul Hasan"
+                            name="Organic Store"
                             />
                         </div>
                         <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
@@ -83,9 +82,9 @@ const Foot = () => {
                         </div>
                     </div>
                     <Footer.Divider />
-                    <div className="w-10/12 mx-auto sm:flex sm:items-center sm:justify-between">
+                    <div className=" sm:flex sm:items-center sm:justify-between">
                         <Footer.Copyright
-                            href="https://portfolio-rakibul.netlify.app/"
+                            href="https://www.rakibulhasandev.com"
                             by="Rakibul Hasan™"
                             year={2023}
                         />
@@ -96,7 +95,7 @@ const Foot = () => {
                         </div>
                     </div>
                 </div>
-            </Footer>
+            </footer>
         </div>
     );
 };

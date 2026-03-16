@@ -13,9 +13,9 @@ const Review = () => {
   return (
     <div>
       <NavBar />
-      <div className="mt-5">
-        <div className="md:flex">
-          <div className="w-10/12 sm:w-7/12 md:w-6/12 lg:w-6/12 xl:w-4/12 mx-auto mb-10">
+      <div className="py-10 max-w-7xl mx-auto px-4 md:px-0">
+        <div className="md:flex items-start  gap-20">
+          <div className="mb-10 flex-1">
             {cartProducts.length ? (
               <div>
                 {cartProducts.map((product) => (
@@ -25,7 +25,7 @@ const Review = () => {
             ) : (
               <div>
                 <img
-                  className="w-11/12 mx-auto"
+                  className="w-6/12 mx-auto"
                   src="https://i.ibb.co/Xt7vHqM/Ice-cream-seller-amico.png"
                   alt=""
                 />
@@ -35,7 +35,7 @@ const Review = () => {
               </div>
             )}
           </div>
-          <div className="w-10/12 sm:w-7/12 md:w-5/12 lg:w-4/12 xl:w-3/12 mx-auto border bg-slate-100">
+          <div className="w-full md:w-96 mx-auto border bg-slate-100">
             <OrderSummery />
           </div>
         </div>

@@ -15,15 +15,22 @@ export default function Blogs() {
   return (
     <>
       <NavBar />
-      <div className="w-11/12 mx-auto grid grid-col-1 md:grid-col-2 lg:grid-cols-3 gap-5 my-10">
+      <div className="max-w-7xl mx-auto grid grid-col-1 md:grid-col-2 lg:grid-cols-3 gap-10 my-10">
         {blogs.map((blog, i) => (
           <div key={i}>
-            <Card className="max-w-sm my-3">
-              <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <Card className="my-3">
+              <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate">
                 {blog.title}
               </h5>
-              <img className="h-56" src={blog.image} alt="" />
-              <p className="font-normal text-gray-700 dark:text-gray-400">
+              <img className="aspect-square" src={blog.image} alt="" />
+              <p className="font-normal text-gray-700 dark:text-gray-400"
+                style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden'
+                }}
+              >
                 {blog.shortDescription}
               </p>
               <a target="_blank" rel="noopener noreferrer" href={blog.link}>

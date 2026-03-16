@@ -21,13 +21,13 @@ export default function Teams() {
   return (
     <>
       <NavBar />
-      <div className="w-11/12 mx-auto my-10">
+      <div className="max-w-7xl mx-auto my-10">
         <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <div className="lg:col-span-2 md:col-span-1">
             <TeamDetails />
           </div>
           <div className="flex justify-center">
-            <Card className="max-w-sm">
+            <Card className="">
               <div className="flex justify-end px-4 pt-4"></div>
               <div className="flex flex-col items-center pb-10">
                 <img

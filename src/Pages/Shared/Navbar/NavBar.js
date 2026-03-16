@@ -39,7 +39,7 @@ const NavBar = () => {
     ]
 
     return (
-        <Navbar className='pt-5 sticky top-0 z-50' fluid={true} rounded={true}>
+        <Navbar className='max-w-[82rem] mx-auto pt-5 sticky top-0 z-50' fluid={true} rounded={true}>
             <Navbar.Brand href="/">
                 <span className="self-center whitespace-nowrap text-2xl font-bold uppercase text-emerald-500"> Organic Store </span>
             </Navbar.Brand>
@@ -50,7 +50,7 @@ const NavBar = () => {
                         <span className="indicator-item bg-fuchsia-500 border-0 badge p-1 badge-secondary text-xs font-bold">{savedProducts.length}</span>
                         <label htmlFor="favorites-modal" className='hover:text-emerald-400 cursor-pointer'><BsFillHeartFill /></label>
                     </div>
-                    <div className="indicator mx-5">
+                    <div className="indicator space-x-5">
                         <span className="indicator-item bg-yellow-300 border-0 badge p-1 badge-secondary text-xs font-bold">{cartProducts.length}</span>
                         <label htmlFor="cart-modal" className='hover:text-emerald-400 cursor-pointer'><BsBagDash /></label>
                     </div>

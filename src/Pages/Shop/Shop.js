@@ -6,8 +6,8 @@ import ShopMenu from './ShopMenu/ShopMenu';
 import useTitle from '../../Title/useTitle';
 
 const Shop = () => {
-    
-    const {products, categoryProducts} = useContext(ProductContext);
+
+    const { products, categoryProducts } = useContext(ProductContext);
     useTitle("Shop");
 
     let items = products;
@@ -22,8 +22,8 @@ const Shop = () => {
                 <h1 className='text-center text-4xl font-semibold'>Products</h1>
                 <hr className='w-2/12 md:w-1/12 mx-auto h-1 bg-emerald-500 md:group-hover:w-2/12 group-hover:w-5/12 transition-width duration-500 ease-in-out mt-2'></hr>
             </div>
-            <ShopMenu/>
-            <div className='min-h-[500px] grid w-11/12 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 mx-auto'>
+            <ShopMenu />
+            <div className=' grid max-w-7xl min-h-screen mx-auto grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10'>
                 {
                     items.map(product => <ProductCard key={product._id} product={product}></ProductCard>
                     )

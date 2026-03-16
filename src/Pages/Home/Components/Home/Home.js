@@ -13,7 +13,7 @@ const Home = () => {
     useTitle("Home");
     
     return (
-        <div>
+        <div className='max-w-7xl mx-auto space-y-24'>
             <Header/>
             <Cart/>
             <Favorites/>
